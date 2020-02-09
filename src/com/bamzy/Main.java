@@ -12,5 +12,21 @@ public class Main {
 
         int[] b = new int[]{2,1,3,7,4,5,99,17,8};
         System.out.println(longestConsecutiveSequence.getLongestSubsetSize(b));
+
+        FibCalculator fibCalculator = new FibCalculator();
+
+        long startTime1 = System.currentTimeMillis();
+        System.out.println("Simple Fib is: " + fibCalculator.simpleFib(20));
+        long endTime1 = System.currentTimeMillis();
+        long duration1 = (endTime1 - startTime1);  //Total execution time in milli seconds
+        System.out.println(duration1);
+        System.out.println("Duration:" + duration1);
+
+        long startTime2 = System.currentTimeMillis();
+        System.out.println("DP Fib is " + fibCalculator.dynamicFibCalculator(20));
+        long endTime2 = System.currentTimeMillis();
+        long duration2 = (endTime2 - startTime2);  //Total execution time in milli seconds
+        System.out.println(duration2);
+        System.out.println("Duration:" + duration2);
     }
 }
