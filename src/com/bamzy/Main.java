@@ -28,5 +28,11 @@ public class Main {
         long duration2 = (endTime2 - startTime2);  //Total execution time in milli seconds
         System.out.println(duration2);
         System.out.println("Duration:" + duration2);
+
+        StepClimber stepClimber = new StepClimber();
+        int res1 = stepClimber.simplePathCalculator(5);
+        int res2 = stepClimber.advancedPathCalculator(5, new int[]{1,2,3});
+        System.out.println("Step Climber:" + res1 + "   " + res2);
+
     }
 }
