@@ -46,4 +46,13 @@ public class StringPermutation {
         }
     }
 
+    private void loopPermutation(String input){
+        String result;
+        for (int i=0; i<input.length(); i++) {
+            for (int j = 0; j < input.length(); j++) {
+//                result.charAt(i) =
+            }
+        }
+    }
+
 }
