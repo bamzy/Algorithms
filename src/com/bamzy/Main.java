@@ -34,5 +34,8 @@ public class Main {
         int res2 = stepClimber.advancedPathCalculator(5, new int[]{1,2,3});
         System.out.println("Step Climber:" + res1 + "   " + res2);
 
+        StringPermutation stringPermutation = new StringPermutation();
+        stringPermutation.permutation("god");
+
     }
 }
