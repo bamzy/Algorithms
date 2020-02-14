@@ -38,8 +38,13 @@ public class Main {
 //        stringPermutation.permutation("god");
 
 
-        LargestPalindrome largestPalindrome = new LargestPalindrome();
-        System.out.println("Palindrome Results: "+ largestPalindrome.findLongestPalindromeBruteForce("abcdeffed"));
+//        LargestPalindrome largestPalindrome = new LargestPalindrome();
+//        System.out.println("Palindrome Results: "+ largestPalindrome.findLongestPalindromeBruteForce("abcdeffed"));
+
+        FirstMinimalDuplicate firstMinimalDuplicate = new FirstMinimalDuplicate();
+        System.out.println("Result is " + firstMinimalDuplicate.firstDuplicateWithArray(new int[]{2,1,3,5,3,2}));
+        System.out.println("Result is " + firstMinimalDuplicate.firstDuplicateWithArray(new int[]{2,2}));
+        System.out.println("Result is " + firstMinimalDuplicate.firstDuplicateWithArray(new int[]{2,4,3,5,1}));
 
     }
 }
