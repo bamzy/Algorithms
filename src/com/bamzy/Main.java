@@ -50,10 +50,24 @@ public class Main {
 //        FirstNonRepeatingCharacter firstNonRepeatingCharacter = new FirstNonRepeatingCharacter();
 //        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabad"));
 //        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabaabacabaf"));
-       int[][] a = new int[][]{{1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}};
-        Rotate2DArray rotate2DArray = new Rotate2DArray();
-        System.out.println("Result is:"+ rotate2DArray.rotateImage(a));
+
+
+//        int[][] a = new int[][]{{1, 2, 3},
+//            {4, 5, 6},
+//            {7, 8, 9}};
+//        Rotate2DArray rotate2DArray = new Rotate2DArray();
+//        System.out.println("Result is:"+ rotate2DArray.rotateImage(a));
+        char[][] grid = {
+                {'3', '.', '.', '1', '4', '.', '.', '2', '.'},
+                {'.', '.', '6', '.', '.', '.', '.', '.', '.'},
+                {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+                {'.', '.', '1', '.', '.', '.', '.', '.', '.'},
+                {'.', '6', '7', '.', '.', '.', '.', '.', '9'},
+                {'.', '.', '.', '.', '.', '.', '8', '1', '.'},
+                {'.', '3', '.', '.', '.', '.', '.', '.', '6'},
+                {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
+                {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
+        Sudoku sudoku = new Sudoku();
+        System.out.println("Result is: " + sudoku.sudoku2(grid));
     }
 }
