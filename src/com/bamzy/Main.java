@@ -57,17 +57,38 @@ public class Main {
 //            {7, 8, 9}};
 //        Rotate2DArray rotate2DArray = new Rotate2DArray();
 //        System.out.println("Result is:"+ rotate2DArray.rotateImage(a));
-        char[][] grid = {
-                {'3', '.', '.', '1', '4', '.', '.', '2', '.'},
-                {'.', '.', '6', '.', '.', '.', '.', '.', '.'},
-                {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
-                {'.', '.', '1', '.', '.', '.', '.', '.', '.'},
-                {'.', '6', '7', '.', '.', '.', '.', '.', '9'},
-                {'.', '.', '.', '.', '.', '.', '8', '1', '.'},
-                {'.', '3', '.', '.', '.', '.', '.', '.', '6'},
-                {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
-                {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
-        Sudoku sudoku = new Sudoku();
-        System.out.println("Result is: " + sudoku.sudoku2(grid));
+
+
+//        char[][] grid = {
+//                {'3', '.', '.', '1', '4', '.', '.', '2', '.'},
+//                {'.', '.', '6', '.', '.', '.', '.', '.', '.'},
+//                {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+//                {'.', '.', '1', '.', '.', '.', '.', '.', '.'},
+//                {'.', '6', '7', '.', '.', '.', '.', '.', '9'},
+//                {'.', '.', '.', '.', '.', '.', '8', '1', '.'},
+//                {'.', '3', '.', '.', '.', '.', '.', '.', '6'},
+//                {'.', '.', '.', '.', '.', '7', '.', '.', '.'},
+//                {'.', '.', '.', '5', '.', '.', '.', '7', '.'}};
+//        Sudoku sudoku = new Sudoku();
+//        System.out.println("Result is: " + sudoku.sudoku2(grid));
+
+        String[] crypt = {"SEND", "MORE", "MONEY"};
+        String[] crypt2 = {"TEN", "TWO", "ONE"};
+        char[][] solution = {{'O', '0'},
+                {'M', '1'},
+                {'Y', '2'},
+                {'E', '5'},
+                {'N', '6'},
+                {'D', '7'},
+                {'R', '8'},
+                {'S', '9'}};
+        char[][] solution2 = {{'O', '1'},
+                {'T', '0'},
+                {'W', '9'},
+                {'E', '5'},
+                {'N', '4'}};
+        CryptSolution cryptSolution = new CryptSolution();
+        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt,solution) );
+        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt2,solution2) );
     }
 }
