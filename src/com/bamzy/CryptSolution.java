@@ -48,7 +48,7 @@ this is not a valid solution.*/
 public class CryptSolution
 {
     boolean isCryptSolution(String[] crypt, char[][] solution) {
-        Integer element1,element2,result;
+        Double element1,element2,result;
         element1 = decipher(crypt[0], solution);
         element2 = decipher(crypt[1], solution);
         result = decipher(crypt[2], solution);
@@ -57,11 +57,13 @@ public class CryptSolution
         else
             return false;
     }
-    Integer decipher(String input,char[][] solution) {
+    Double decipher(String input,char[][] solution) {
         char[] result = new char[input.length()];
         for (int j = 0; j < input.length(); j++){
+            boolean foundFlag = false;
             for (int i = 0; i < solution.length; i++) {
                 if (solution[i][0] == input.charAt(j)) {
+                    foundFlag = true;
                     if (solution[i][1] == '0' && j==0 && input.length()>1)
                         return null;
                     else {
@@ -70,7 +72,9 @@ public class CryptSolution
                     }
                 }
             }
+            if (!foundFlag)
+                return null;
         }
-        return Integer.parseInt(new String(result));
+        return Double.parseDouble(new String(result));
     }
 }

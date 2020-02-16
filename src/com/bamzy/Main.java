@@ -76,7 +76,7 @@ public class Main {
         String[] crypt2 = {"TEN", "TWO", "ONE"};
         char[][] solution = {{'O', '0'},
                 {'M', '1'},
-                {'Y', '2'},
+//                {'Y', '2'},
                 {'E', '5'},
                 {'N', '6'},
                 {'D', '7'},
