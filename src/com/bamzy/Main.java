@@ -47,8 +47,13 @@ public class Main {
 //        System.out.println("Result is " + firstMinimalDuplicate.firstDuplicateWithArray(new int[]{2,4,3,5,1}));
 
 
-        FirstNonRepeatingCharacter firstNonRepeatingCharacter = new FirstNonRepeatingCharacter();
-        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabad"));
-        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabaabacabaf"));
+//        FirstNonRepeatingCharacter firstNonRepeatingCharacter = new FirstNonRepeatingCharacter();
+//        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabad"));
+//        System.out.println("Result is:" + firstNonRepeatingCharacter.findFirstNonRepeatingCharacter("abacabaabacabaf"));
+       int[][] a = new int[][]{{1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}};
+        Rotate2DArray rotate2DArray = new Rotate2DArray();
+        System.out.println("Result is:"+ rotate2DArray.rotateImage(a));
     }
 }
