@@ -72,23 +72,33 @@ public class Main {
 //        Sudoku sudoku = new Sudoku();
 //        System.out.println("Result is: " + sudoku.sudoku2(grid));
 
-        String[] crypt = {"SEND", "MORE", "MONEY"};
-        String[] crypt2 = {"TEN", "TWO", "ONE"};
-        char[][] solution = {{'O', '0'},
-                {'M', '1'},
+//        String[] crypt = {"SEND", "MORE", "MONEY"};
+//        String[] crypt2 = {"TEN", "TWO", "ONE"};
+//        char[][] solution = {{'O', '0'},
+//                {'M', '1'},
 //                {'Y', '2'},
-                {'E', '5'},
-                {'N', '6'},
-                {'D', '7'},
-                {'R', '8'},
-                {'S', '9'}};
-        char[][] solution2 = {{'O', '1'},
-                {'T', '0'},
-                {'W', '9'},
-                {'E', '5'},
-                {'N', '4'}};
-        CryptSolution cryptSolution = new CryptSolution();
-        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt,solution) );
-        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt2,solution2) );
+//                {'E', '5'},
+//                {'N', '6'},
+//                {'D', '7'},
+//                {'R', '8'},
+//                {'S', '9'}};
+//        char[][] solution2 = {{'O', '1'},
+//                {'T', '0'},
+//                {'W', '9'},
+//                {'E', '5'},
+//                {'N', '4'}};
+//        CryptSolution cryptSolution = new CryptSolution();
+//        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt,solution) );
+//        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt2,solution2) );
+
+        PalindromeLinkedLists palindromeLinkedLists = new PalindromeLinkedLists();
+        ListNode<Integer> a = new ListNode(1);
+        ListNode<Integer> b = new ListNode(2);
+        ListNode<Integer> c = new ListNode(3);
+        ListNode<Integer> d = new ListNode(1);
+        ListNode<Integer> e = new ListNode(2);
+        ListNode<Integer> f = new ListNode(3);
+        a.next=b;b.next=c;c.next=d;d.next=e;e.next=f;
+        System.out.println("Result is: " + palindromeLinkedLists.isListPalindrome(a));
     }
 }

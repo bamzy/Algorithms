@@ -26,23 +26,47 @@ Input/Output
 A singly linked list of integers.
 
 Guaranteed constraints:
-0 ≤ list size ≤ 5 · 105,
--109 ≤ element value ≤ 109.
+0 ≤ list size ≤ 5 · 10^5,
+-10^9 ≤ element value ≤ 10^9.
 
 [output] boolean
 
 Return true if l is a palindrome, otherwise return false.*/
 public class PalindromeLinkedLists {
-    class ListNode<T> {
-       ListNode(T x) {
-         value = x;
-       }
-       T value;
-       ListNode<T> next;
-     }
+
 
     boolean isListPalindrome(ListNode<Integer> l) {
-        return false;
+        ListNode temp =l;
+        int size = 1;
+        if (l==null || l.next == null)
+            return true;
+        while (temp.next != null){
+            temp = temp.next;
+            size++;
+        }
+        int counter =0;
+        temp = null;
+        ListNode current = l, prev = null;
+        while (current != null ) {
+            if (counter >= size/2){
+                temp = current.next;
+                current.next = prev;
+                prev = current;
+                current = temp;
+            } else
+                current = current.next;
+            counter++;
+        }
+        ListNode lastNode = prev;
+        ListNode firstNode = l;
+        while (firstNode != null && lastNode != null){
+            if (!firstNode.value.equals( lastNode.value))
+                return false;
+            firstNode = firstNode.next;
+            lastNode = lastNode.next;
+        }
+
+        return true;
     }
 
 }
