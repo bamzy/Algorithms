@@ -91,14 +91,25 @@ public class Main {
 //        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt,solution) );
 //        System.out.println("Result is:" + cryptSolution.isCryptSolution(crypt2,solution2) );
 
-        PalindromeLinkedLists palindromeLinkedLists = new PalindromeLinkedLists();
+//        PalindromeLinkedLists palindromeLinkedLists = new PalindromeLinkedLists();
+//        ListNode<Integer> a = new ListNode(1);
+//        ListNode<Integer> b = new ListNode(2);
+//        ListNode<Integer> c = new ListNode(3);
+//        ListNode<Integer> d = new ListNode(1);
+//        ListNode<Integer> e = new ListNode(2);
+//        ListNode<Integer> f = new ListNode(3);
+//        a.next=b;b.next=c;c.next=d;d.next=e;e.next=f;
+//        System.out.println("Result is: " + palindromeLinkedLists.isListPalindrome(a));
+
+        HugeLinkedListNumbers hugeLinkedListNumbers = new HugeLinkedListNumbers();
         ListNode<Integer> a = new ListNode(1);
-        ListNode<Integer> b = new ListNode(2);
-        ListNode<Integer> c = new ListNode(3);
-        ListNode<Integer> d = new ListNode(1);
-        ListNode<Integer> e = new ListNode(2);
-        ListNode<Integer> f = new ListNode(3);
-        a.next=b;b.next=c;c.next=d;d.next=e;e.next=f;
-        System.out.println("Result is: " + palindromeLinkedLists.isListPalindrome(a));
+        ListNode<Integer> b = new ListNode(9999);
+        ListNode<Integer> c = new ListNode(9999);
+        ListNode<Integer> d = new ListNode(9999);
+        ListNode<Integer> e = new ListNode(9999);
+        ListNode<Integer> f = new ListNode(9999);
+        ListNode<Integer> g = new ListNode(9999);
+        b.next=c;c.next=d;d.next=e;e.next=f;f.next=g;
+        System.out.println("Result is: " + hugeLinkedListNumbers.addTwoHugeNumbers(a,b));
     }
 }
