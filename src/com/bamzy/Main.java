@@ -125,16 +125,26 @@ public class Main {
 //        System.out.println("Result is: " + mergeLinkedLists.mergeTwoLinkedLists(a,e));
 
 
-        BFSTraverseTree bfsTraverseTree = new BFSTraverseTree();
-        Tree<Integer> a = new Tree<>(1);
-        Tree<Integer> b = new Tree<>(2);
-        Tree<Integer> c = new Tree<>(4);
-        a.left = b; a.right=c;
-        Tree<Integer> d = new Tree<>(3);
-        Tree<Integer> e = new Tree<>(5);
-        b.right = d; c.left = e;
+//        TraverseTree traverseTree = new TraverseTree();
+//        Tree<Integer> a = new Tree<>(1);
+//        Tree<Integer> b = new Tree<>(2);
+//        Tree<Integer> c = new Tree<>(4);
+//        a.left = b; a.right=c;
+//        Tree<Integer> d = new Tree<>(3);
+//        Tree<Integer> e = new Tree<>(5);
+//        b.right = d; c.left = e;
+//
+//        System.out.println("Result is: "+traverseTree.traverseTree(a));
 
-//        System.out.println("Result is: "+bfsTraverseTree.traverseTree(a));
-        System.out.println("Result is: "+bfsTraverseTree.traverseTree(null));
+
+        TraverseTree traverseTree = new TraverseTree();
+        Tree<Integer> a = new Tree<>(-1);
+        Tree<Integer> b = new Tree<>(5);
+        Tree<Integer> c = new Tree<>(7);
+        Tree<Integer> e = new Tree<>(1);
+        a.left = b; a.right=c;c.right = e;
+
+
+        System.out.println("Result is: "+traverseTree.largestValuesInTreeRows(a));
     }
 }
