@@ -61,5 +61,7 @@ public class TraverseTree {
         }
         return arrayRes;
     }
+    long digitTreeSum(Tree<Integer> t) {
 
+    }
 }
