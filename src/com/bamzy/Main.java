@@ -101,15 +101,27 @@ public class Main {
 //        a.next=b;b.next=c;c.next=d;d.next=e;e.next=f;
 //        System.out.println("Result is: " + palindromeLinkedLists.isListPalindrome(a));
 
-        HugeLinkedListNumbers hugeLinkedListNumbers = new HugeLinkedListNumbers();
+//        HugeLinkedListNumbers hugeLinkedListNumbers = new HugeLinkedListNumbers();
+//        ListNode<Integer> a = new ListNode(1);
+//        ListNode<Integer> b = new ListNode(9999);
+//        ListNode<Integer> c = new ListNode(9999);
+//        ListNode<Integer> d = new ListNode(9999);
+//        ListNode<Integer> e = new ListNode(9999);
+//        ListNode<Integer> f = new ListNode(9999);
+//        ListNode<Integer> g = new ListNode(9999);
+//        b.next=c;c.next=d;d.next=e;e.next=f;f.next=g;
+//        System.out.println("Result is: " + hugeLinkedListNumbers.addTwoHugeNumbers(a,b));
+
+
+        MergeLinkedLists mergeLinkedLists = new MergeLinkedLists();
         ListNode<Integer> a = new ListNode(1);
-        ListNode<Integer> b = new ListNode(9999);
-        ListNode<Integer> c = new ListNode(9999);
-        ListNode<Integer> d = new ListNode(9999);
-        ListNode<Integer> e = new ListNode(9999);
-        ListNode<Integer> f = new ListNode(9999);
-        ListNode<Integer> g = new ListNode(9999);
-        b.next=c;c.next=d;d.next=e;e.next=f;f.next=g;
-        System.out.println("Result is: " + hugeLinkedListNumbers.addTwoHugeNumbers(a,b));
+        ListNode<Integer> b = new ListNode(1);
+        ListNode<Integer> c = new ListNode(2);
+        ListNode<Integer> d = new ListNode(4);
+        ListNode<Integer> e = new ListNode(0);
+        ListNode<Integer> f = new ListNode(3);
+        ListNode<Integer> g = new ListNode(5);
+        a.next=b;b.next=c;c.next=d;e.next=f;f.next=g;
+        System.out.println("Result is: " + mergeLinkedLists.mergeTwoLinkedLists(a,e));
     }
 }

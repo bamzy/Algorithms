@@ -34,7 +34,38 @@ Guaranteed constraints:
 -109 ≤ element value ≤ 109.*/
 public class MergeLinkedLists {
     ListNode<Integer> mergeTwoLinkedLists(ListNode<Integer> l1, ListNode<Integer> l2) {
+        ListNode<Integer> first = l1, second = l2, firstPrev=null,temp,result;
+        if (l1.value<l2.value)
+            result = l1;
+        else
+            result = l2;
+        while (first != null && second != null){
+            if (first.value >= second.value){
+                temp = second.next;
+                if (firstPrev !=null){
+                    firstPrev.next = second;
+                    second.next = first;
+                } else {
+                    second.next = first;
+                }
+                firstPrev = second;
+                if (temp!=null)
+                    second = temp;
+                else second = null;
+            } else {
+                firstPrev= first;
+//                result = l1;
+                if (first!=null && first.next!=null)
+                    first = first.next;
+                if (first != null && first.next == null) {
+                    first.next = second;
+                    break;
+                }
 
+            }
+
+        }
+        return result;
     }
 
 }
