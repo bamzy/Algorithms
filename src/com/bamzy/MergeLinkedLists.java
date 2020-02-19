@@ -35,6 +35,12 @@ Guaranteed constraints:
 public class MergeLinkedLists {
     ListNode<Integer> mergeTwoLinkedLists(ListNode<Integer> l1, ListNode<Integer> l2) {
         ListNode<Integer> first = l1, second = l2, firstPrev=null,temp,result;
+        if (l2 == null && l1!= null)
+            return l1;
+        else if (l2!=null & l1 == null)
+            return l2;
+        else if (l1 == null && l2 == null)
+            return null;
         if (l1.value<l2.value)
             result = l1;
         else
@@ -54,12 +60,13 @@ public class MergeLinkedLists {
                 else second = null;
             } else {
                 firstPrev= first;
-//                result = l1;
                 if (first!=null && first.next!=null)
                     first = first.next;
                 if (first != null && first.next == null) {
-                    first.next = second;
-                    break;
+                    if (first.value<second.value) {
+                        first.next = second;
+                        break;
+                    }
                 }
 
             }
