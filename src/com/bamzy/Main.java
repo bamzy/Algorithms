@@ -138,13 +138,14 @@ public class Main {
 
 
         TraverseTree traverseTree = new TraverseTree();
-        Tree<Integer> a = new Tree<>(-1);
-        Tree<Integer> b = new Tree<>(5);
-        Tree<Integer> c = new Tree<>(7);
-        Tree<Integer> e = new Tree<>(1);
-        a.left = b; a.right=c;c.right = e;
+        Tree<Integer> a = new Tree<>(0);
+        Tree<Integer> b = new Tree<>(1);
+        Tree<Integer> c = new Tree<>(3);
+        Tree<Integer> d = new Tree<>(1);
+        Tree<Integer> e = new Tree<>(4);
+        a.left = b;
 
 
-        System.out.println("Result is: "+traverseTree.largestValuesInTreeRows(a));
+        System.out.println("Result is: "+traverseTree.digitTreeSum(a));
     }
 }

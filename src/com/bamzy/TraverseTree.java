@@ -1,8 +1,8 @@
 package com.bamzy;
 
 import java.util.ArrayList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class TraverseTree {
     int[] traverseTree(Tree<Integer> t) {
@@ -61,7 +61,35 @@ public class TraverseTree {
         }
         return arrayRes;
     }
+    LinkedList<Long> results = new LinkedList<>();
+    long makeInt(ArrayList<Integer> input){
+        String result = "";
+        for (Integer digits : input) {
+            result = result + digits;
+        }
+        return Long.parseLong(result);
+    }
+    void recTraverse(Tree<Integer> t, ArrayList<Integer> numbers){
+        numbers.add(t.value);
+        ArrayList listCopy1 = new ArrayList(numbers);
+        ArrayList listCopy2 = new ArrayList(numbers);
+        if (t.left == null && t.right == null){
+            results.add(makeInt(numbers));
+        } else {
+            if (t.left!= null)
+                recTraverse(t.left,listCopy1);
+            if (t.right!=null)
+                recTraverse(t.right,listCopy2);
+        }
+    }
     long digitTreeSum(Tree<Integer> t) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        recTraverse(t, numbers);
+        long finalSum=0;
+        for (Long result : results) {
+            finalSum=finalSum+ result;
+        }
+        return finalSum;
 
     }
 }
