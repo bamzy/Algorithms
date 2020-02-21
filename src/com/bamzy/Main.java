@@ -137,15 +137,19 @@ public class Main {
 //        System.out.println("Result is: "+traverseTree.traverseTree(a));
 
 
-        TraverseTree traverseTree = new TraverseTree();
-        Tree<Integer> a = new Tree<>(0);
-        Tree<Integer> b = new Tree<>(1);
-        Tree<Integer> c = new Tree<>(3);
-        Tree<Integer> d = new Tree<>(1);
-        Tree<Integer> e = new Tree<>(4);
-        a.left = b;
+//        TraverseTree traverseTree = new TraverseTree();
+//        Tree<Integer> a = new Tree<>(0);
+//        Tree<Integer> b = new Tree<>(1);
+//        Tree<Integer> c = new Tree<>(3);
+//        Tree<Integer> d = new Tree<>(1);
+//        Tree<Integer> e = new Tree<>(4);
+//        a.left = b;
+//
+//
+//        System.out.println("Result is: "+traverseTree.digitTreeSum(a));
 
-
-        System.out.println("Result is: "+traverseTree.digitTreeSum(a));
+        FileSystemManager fileSystemManager = new FileSystemManager();
+//        fileSystemManager.longestPath("user\n\tpictures\n\tdocuments\n\t\tnotes.txt");
+        fileSystemManager.longestPath("user\n\tpictures\n\t\tphoto.png\n\t\tcamera\n\tdocuments\n\t\tlectures\n\t\t\tnotes.txt");
     }
 }
