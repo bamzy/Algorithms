@@ -57,6 +57,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class FileSystemManager {
+//    String carriageReturn = String.valueOf((char)12);
+    String carriageReturn = "\n";
     class FileNode {
         FileNode(String name,boolean isFile, int rank,FileNode parent) {
             value = name;
@@ -77,7 +79,7 @@ public class FileSystemManager {
             count++;
             text = text.substring(1);
         }
-        int index = text.indexOf("\n");
+        int index = text.indexOf(carriageReturn);
 
         String name;
         if (index != -1 )
@@ -86,7 +88,7 @@ public class FileSystemManager {
             name = text;
         FileNode newElement = null ;
         if (name.contains(".")){
-            if (count == parent.rank + 1) {
+            if (count == parent.rank + 1 || (count == parent.rank && count == 0) ) {
                 newElement = new FileNode(name, true, count,parent);
                 parent.children.add(newElement);
             } else {
@@ -108,25 +110,34 @@ public class FileSystemManager {
             }
 
         }
-        if (text.indexOf("\n") != -1)
-            parseRest(text.substring(text.indexOf("\n")+1),newElement);
+        if (text.indexOf(carriageReturn) != -1)
+            parseRest(text.substring(text.indexOf(carriageReturn)+1),newElement);
 
     }
     int longestPath(String fileSystem) {
-        int endIndex = fileSystem.indexOf("\n");
+        if (!fileSystem.contains(carriageReturn)){
+            if (fileSystem.contains("."))
+                return fileSystem.length();
+            else
+                return 0;
+        }
+        int endIndex = fileSystem.indexOf(carriageReturn);
         String first = fileSystem.substring(0, endIndex);
         FileNode root = new FileNode(first,false, 0, null);
         parseRest(fileSystem.substring(endIndex+1),root);
 
-       recTraverse(root,"");
-        return maxSize-1;
+        recTraverse(root,"");
+        if (maxSize != 0 )
+            return maxSize-1;
+        else
+            return 0;
     }
     int maxSize=0;
     void recTraverse(FileNode t, String path){
         path = path + "/" + t.value;
         if (t.children.size() == 0 && t.isFile){
             if (path.length() > maxSize) {
-                maxSize = path.length();
+                maxSize = path.replace(" ","").length();
                 System.out.println(path);
             }
 

@@ -150,6 +150,6 @@ public class Main {
 
         FileSystemManager fileSystemManager = new FileSystemManager();
 //        fileSystemManager.longestPath("user\n\tpictures\n\tdocuments\n\t\tnotes.txt");
-        fileSystemManager.longestPath("user\n\tpictures\n\t\tphoto.png\n\t\tcamera\n\tdocuments\n\t\tlectures\n\t\t\tnotes.txt");
+        System.out.println("Result is:" + fileSystemManager.longestPath("dir\n    file.txt"));
     }
 }
