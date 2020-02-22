@@ -148,8 +148,14 @@ public class Main {
 //
 //        System.out.println("Result is: "+traverseTree.digitTreeSum(a));
 
-        FileSystemManager fileSystemManager = new FileSystemManager();
+//        FileSystemManager fileSystemManager = new FileSystemManager();
 //        fileSystemManager.longestPath("user\n\tpictures\n\tdocuments\n\t\tnotes.txt");
-        System.out.println("Result is:" + fileSystemManager.longestPath("dir\n    file.txt"));
+//        System.out.println("Result is:" + fileSystemManager.longestPath("dir\n    file.txt"));
+
+//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+//        System.out.println(containsDuplicates.containsDuplicates(new int[]{1,2,3,1}));
+
+        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
     }
 }
