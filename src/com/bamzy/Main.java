@@ -155,7 +155,11 @@ public class Main {
 //        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.containsDuplicates(new int[]{1,2,3,1}));
 
+//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+//        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
+
         ContainsDuplicates containsDuplicates = new ContainsDuplicates();
-        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
+//        System.out.println(containsDuplicates.sumInRange(new int[]{3,0,-2,6,-3,2},new int[][]{{0,2},{2,5},{0,5}}));
+        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
     }
 }

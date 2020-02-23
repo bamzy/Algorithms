@@ -37,9 +37,19 @@ public class ContainsDuplicates {
         }
         int finalSum = 0;
         for (int[] query : queries) {
-            finalSum = finalSum + (sums[query[1]]-sums[query[0]]);
+            int start;
+            if (query[0] > 0) {
+                start = query[0] - 1;
+                finalSum = finalSum + (sums[query[1]]-sums[start]);
+            }
+            else {
+                finalSum = finalSum + sums[query[1]] ;
+            }
         }
-        return finalSum;
+        if (finalSum > 0 )
+            return finalSum;
+        else return 1000000007+finalSum;
+//        return (int)(finalSum % (Math.pow(10,9)+7));
     }
 
 
