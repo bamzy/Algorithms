@@ -163,7 +163,17 @@ public class Main {
 //        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
 
 
-        MinSubstringWithAllChars minSubstringWithAllChars = new MinSubstringWithAllChars();
-        System.out.println(minSubstringWithAllChars.minSubstringWithAllChars("adobecodebanc","abc"));
+//        MinSubstringWithAllChars minSubstringWithAllChars = new MinSubstringWithAllChars();
+//        System.out.println(minSubstringWithAllChars.minSubstringWithAllChars("adobecodebanc","abc"));
+        ListNode<Integer> a = new ListNode(3);
+        ListNode<Integer> b = new ListNode(1);
+        ListNode<Integer> c = new ListNode(2);
+        ListNode<Integer> d = new ListNode(3);
+        ListNode<Integer> e = new ListNode(1000);
+        ListNode<Integer> f = new ListNode(1000);
+        a.next = b;b.next = c; c.next =d ; d.next = e; e.next = f;
+
+        RemoveFromLinkedList removeFromLinkedList = new RemoveFromLinkedList();
+        ListNode<Integer> result = removeFromLinkedList.removeKFromList(a,1000);
     }
 }

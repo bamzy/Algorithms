@@ -12,6 +12,29 @@ removeKFromList(l, k) = [1, 2, 3, 4, 5, 6, 7].*/
 public class RemoveFromLinkedList {
     ListNode<Integer> removeKFromList(ListNode<Integer> l, int k) {
 
+        ListNode<Integer> old = null, temp=l,result;
+        result = temp;
+
+        while (temp !=null){
+            if (temp.value.equals(k)){
+                if (old != null) {
+                    old.next = temp.next;
+//                    old = temp;
+
+                }
+                else {
+                    result = result.next;
+                    old = null;
+                }
+
+            } else
+                old = temp;
+            temp=temp.next;
+
+        }
+        return result;
+
+
     }
 
 }
