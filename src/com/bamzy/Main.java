@@ -158,8 +158,12 @@ public class Main {
 //        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
 
-        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.sumInRange(new int[]{3,0,-2,6,-3,2},new int[][]{{0,2},{2,5},{0,5}}));
-        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
+//        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
+
+
+        MinSubstringWithAllChars minSubstringWithAllChars = new MinSubstringWithAllChars();
+        System.out.println(minSubstringWithAllChars.minSubstringWithAllChars("adobecodebanc","abc"));
     }
 }
