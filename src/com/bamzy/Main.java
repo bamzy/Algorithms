@@ -158,22 +158,28 @@ public class Main {
 //        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
 
-//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
-//        System.out.println(containsDuplicates.sumInRange(new int[]{3,0,-2,6,-3,2},new int[][]{{0,2},{2,5},{0,5}}));
+        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+        System.out.println(containsDuplicates.sumInRange(new int[]{-4,-18,-22,-14,-33,-47,-29,-35,-50,-19},new int[][]{
+                {2,9},
+                {5,6},
+                {1,2},
+                {2,2},
+                {4,5}
+        }));
 //        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
 
 
 //        MinSubstringWithAllChars minSubstringWithAllChars = new MinSubstringWithAllChars();
 //        System.out.println(minSubstringWithAllChars.minSubstringWithAllChars("adobecodebanc","abc"));
-        ListNode<Integer> a = new ListNode(3);
-        ListNode<Integer> b = new ListNode(1);
-        ListNode<Integer> c = new ListNode(2);
-        ListNode<Integer> d = new ListNode(3);
-        ListNode<Integer> e = new ListNode(1000);
-        ListNode<Integer> f = new ListNode(1000);
-        a.next = b;b.next = c; c.next =d ; d.next = e; e.next = f;
-
-        RemoveFromLinkedList removeFromLinkedList = new RemoveFromLinkedList();
-        ListNode<Integer> result = removeFromLinkedList.removeKFromList(a,1000);
+//        ListNode<Integer> a = new ListNode(3);
+//        ListNode<Integer> b = new ListNode(1);
+//        ListNode<Integer> c = new ListNode(2);
+//        ListNode<Integer> d = new ListNode(3);
+//        ListNode<Integer> e = new ListNode(1000);
+//        ListNode<Integer> f = new ListNode(1000);
+//        a.next = b;b.next = c; c.next =d ; d.next = e; e.next = f;
+//
+//        RemoveFromLinkedList removeFromLinkedList = new RemoveFromLinkedList();
+//        ListNode<Integer> result = removeFromLinkedList.removeKFromList(a,1000);
     }
 }
