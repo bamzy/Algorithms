@@ -158,14 +158,14 @@ public class Main {
 //        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
 
-        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
-        System.out.println(containsDuplicates.sumInRange(new int[]{-4,-18,-22,-14,-33,-47,-29,-35,-50,-19},new int[][]{
-                {2,9},
-                {5,6},
-                {1,2},
-                {2,2},
-                {4,5}
-        }));
+//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+//        System.out.println(containsDuplicates.sumInRange(new int[]{-4,-18,-22,-14,-33,-47,-29,-35,-50,-19},new int[][]{
+//                {2,9},
+//                {5,6},
+//                {1,2},
+//                {2,2},
+//                {4,5}
+//        }));
 //        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
 
 
@@ -181,5 +181,8 @@ public class Main {
 //
 //        RemoveFromLinkedList removeFromLinkedList = new RemoveFromLinkedList();
 //        ListNode<Integer> result = removeFromLinkedList.removeKFromList(a,1000);
+
+        FindLongestSubArrayBySum findLongestSubArrayBySum = new FindLongestSubArrayBySum();
+        System.out.println(findLongestSubArrayBySum.findLongestSubarrayBySum(15,new int[]{1, 2, 3, 4, 5, 0, 0, 0, 6, 7, 8, 9, 10}));
     }
 }
