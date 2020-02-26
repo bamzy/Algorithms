@@ -186,8 +186,11 @@ public class Main {
 //        System.out.println(findLongestSubArrayBySum.findLongestSubarrayBySum(15,new int[]{1, 2, 3, 4, 5, 0, 0, 0, 6, 7, 8, 9, 10}));
 
 
-        ArrayMaxConsecutiveSum arrayMaxConsecutiveSum = new ArrayMaxConsecutiveSum();
-        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-2, 2, 5, -11,6}));
-        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-3, -2, -1, -4}));
+//        ArrayMaxConsecutiveSum arrayMaxConsecutiveSum = new ArrayMaxConsecutiveSum();
+//        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-2, 2, 5, -11,6}));
+//        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-3, -2, -1, -4}));
+
+        ProductExceptSelf productExceptSelf = new ProductExceptSelf();
+        System.out.println(productExceptSelf.productExceptSelf(new int[]{27, 37, 47, 30, 17, 6, 20, 17, 21, 43, 5, 49, 49, 50, 20, 42, 45, 1, 22, 44}, 40));
     }
 }
