@@ -182,7 +182,12 @@ public class Main {
 //        RemoveFromLinkedList removeFromLinkedList = new RemoveFromLinkedList();
 //        ListNode<Integer> result = removeFromLinkedList.removeKFromList(a,1000);
 
-        FindLongestSubArrayBySum findLongestSubArrayBySum = new FindLongestSubArrayBySum();
-        System.out.println(findLongestSubArrayBySum.findLongestSubarrayBySum(15,new int[]{1, 2, 3, 4, 5, 0, 0, 0, 6, 7, 8, 9, 10}));
+//        FindLongestSubArrayBySum findLongestSubArrayBySum = new FindLongestSubArrayBySum();
+//        System.out.println(findLongestSubArrayBySum.findLongestSubarrayBySum(15,new int[]{1, 2, 3, 4, 5, 0, 0, 0, 6, 7, 8, 9, 10}));
+
+
+        ArrayMaxConsecutiveSum arrayMaxConsecutiveSum = new ArrayMaxConsecutiveSum();
+        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-2, 2, 5, -11,6}));
+        System.out.println(arrayMaxConsecutiveSum.arrayMaxConsecutiveSum2(new int[]{-3, -2, -1, -4}));
     }
 }
