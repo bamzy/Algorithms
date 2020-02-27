@@ -35,20 +35,18 @@ public class ContainsDuplicates {
     }
     int sumInRange(int[] nums, int[][] queries) {
         BigInteger big = new BigInteger("1000000007");
-        int sums[] = new int[nums.length+1];
-        int tempSum = 0;
+        BigInteger sums[] = new BigInteger[nums.length+1];
+        sums[0] = BigInteger.valueOf(0);
+        BigInteger tempSum = BigInteger.valueOf(0);
         for (int i = 0; i < nums.length ; i++){
-            tempSum = tempSum + nums[i];
+            tempSum = tempSum.add(BigInteger.valueOf(nums[i])) ;
             sums[i+1] = tempSum;
         }
-        int finalSum=0 ;
+        BigInteger finalSum= BigInteger.valueOf(0);
         for (int[] query : queries) {
-
-            finalSum = finalSum + sums[query[1] + 1] - sums[query[0]];
-
+            finalSum = finalSum.add(sums[query[1] + 1].subtract(sums[query[0]]) )  ;
         }
-     BigInteger a  = new BigInteger(Integer.toString(finalSum));
-        return a.mod(big).intValue();
+        return finalSum.mod(big).intValue();
     }
 
 
