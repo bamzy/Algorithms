@@ -158,19 +158,19 @@ public class Main {
 //        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
 //        System.out.println(containsDuplicates.sumOfTwo(new int[]{1,2,3},new int[]{10,20,30,40},42));
 
-        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
-        System.out.println(containsDuplicates.sumInRange(new int[]{3, 0, -2, 6, -3, 2},new int[][]{
-                        {0,2},
-                        {2,5},
-                        {0,5},
-                }));
-        System.out.println(containsDuplicates.sumInRange(new int[]{-4,-18,-22,-14,-33,-47,-29,-35,-50,-19},new int[][]{
-                {2,9},
-                {5,6},
-                {1,2},
-                {2,2},
-                {4,5}
-        }));
+//        ContainsDuplicates containsDuplicates = new ContainsDuplicates();
+//        System.out.println(containsDuplicates.sumInRange(new int[]{3, 0, -2, 6, -3, 2},new int[][]{
+//                        {0,2},
+//                        {2,5},
+//                        {0,5},
+//                }));
+//        System.out.println(containsDuplicates.sumInRange(new int[]{-4,-18,-22,-14,-33,-47,-29,-35,-50,-19},new int[][]{
+//                {2,9},
+//                {5,6},
+//                {1,2},
+//                {2,2},
+//                {4,5}
+//        }));
 //        System.out.println(containsDuplicates.sumInRange(new int[]{-1000},new int[][]{{0,0}}));
 
 
@@ -199,5 +199,17 @@ public class Main {
 //        System.out.println(productExceptSelf.productExceptSelf(new int[]{27, 37, 47, 30, 17, 6, 20, 17, 21, 43, 5, 49, 49, 50, 20, 42, 45, 1, 22, 44}, 40));
 //        System.out.println(productExceptSelf.productExceptSelfWithout1(new int[]{1,2,3,4}, 12));
 //        System.out.println(productExceptSelf.productExceptSelfWithout(new int[]{52, 40, 2, 78, 49, 70, 39, 26, 58, 58, 52, 93, 80, 64, 33, 72, 29, 17, 81, 83, 48, 9, 49, 82, 67, 76, 54, 64, 6, 48, 16, 82, 67, 56, 32, 98, 14, 47, 48, 26, 56, 54, 80, 13, 32, 18, 4, 73, 45, 65}, 530));
+
+        FindTreePathBySum findTreePathBySum = new FindTreePathBySum();
+        MyTree<Integer> a = new MyTree<>(1);
+        MyTree<Integer> b = new MyTree<>(2);
+        MyTree<Integer> c = new MyTree<>(3);
+        MyTree<Integer> d = new MyTree<>(4);
+        MyTree<Integer> e = new MyTree<>(5);
+        MyTree<Integer> f = new MyTree<>(6);
+        MyTree<Integer> g = new MyTree<>(7);
+        a.left = b; a.right = c; b.left =d;b.right = e; c.left = f; c.right = g;
+
+        findTreePathBySum.findTreePathEqualToSum(a,8);
     }
 }
