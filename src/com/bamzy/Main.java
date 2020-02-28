@@ -201,15 +201,26 @@ public class Main {
 //        System.out.println(productExceptSelf.productExceptSelfWithout(new int[]{52, 40, 2, 78, 49, 70, 39, 26, 58, 58, 52, 93, 80, 64, 33, 72, 29, 17, 81, 83, 48, 9, 49, 82, 67, 76, 54, 64, 6, 48, 16, 82, 67, 56, 32, 98, 14, 47, 48, 26, 56, 54, 80, 13, 32, 18, 4, 73, 45, 65}, 530));
 
         FindTreePathBySum findTreePathBySum = new FindTreePathBySum();
-        MyTree<Integer> a = new MyTree<>(1);
-        MyTree<Integer> b = new MyTree<>(2);
-        MyTree<Integer> c = new MyTree<>(3);
-        MyTree<Integer> d = new MyTree<>(4);
-        MyTree<Integer> e = new MyTree<>(5);
-        MyTree<Integer> f = new MyTree<>(6);
-        MyTree<Integer> g = new MyTree<>(7);
-        a.left = b; a.right = c; b.left =d;b.right = e; c.left = f; c.right = g;
+//        MyTree<Integer> a = new MyTree<>(1);
+//        MyTree<Integer> b = new MyTree<>(2);
+//        MyTree<Integer> c = new MyTree<>(3);
+//        MyTree<Integer> d = new MyTree<>(4);
+//        MyTree<Integer> e = new MyTree<>(5);
+//        MyTree<Integer> f = new MyTree<>(6);
+//        MyTree<Integer> g = new MyTree<>(7);
+//        a.left = b; a.right = c; b.left =d;b.right = e; c.left = f; c.right = g;
+//        findTreePathBySum.findTreePathEqualToSum(a,8);
 
-        findTreePathBySum.findTreePathEqualToSum(a,8);
+
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(3);
+        TreeNode d = new TreeNode(4);
+        TreeNode e = new TreeNode(5);
+        TreeNode f = new TreeNode(6);
+        TreeNode g = new TreeNode(7);
+        a.left = b; a.right = c; b.left =d;b.right = e; c.left = f; c.right = g;
+        System.out.println( findTreePathBySum.hasPathSum(a,6));
+
     }
 }

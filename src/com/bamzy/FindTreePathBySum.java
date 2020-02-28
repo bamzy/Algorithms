@@ -9,7 +9,6 @@ public class FindTreePathBySum {
         Stack<MyTree<Integer>> queue = new Stack<>();
         root.parentSum = 0;
         queue.push(root);
-        int tempSum = 0;
         MyTree<Integer> current;
         while (queue.size() > 0){
             current = queue.pop();
@@ -27,5 +26,20 @@ public class FindTreePathBySum {
             }
         }
         return false;
+    }
+
+
+    boolean hasPathSum(TreeNode root,int sum){
+        if (root == null )
+            return false;
+        if (root.left == null && root.right == null){
+            if (root.val == sum)
+                return true;
+            return false;
+        }
+        return (hasPathSum(root.left,sum- root.val ) || hasPathSum(root.right,sum-root.val));
+
+
+
     }
 }
