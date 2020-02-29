@@ -34,7 +34,6 @@ Guaranteed constraints:
 Return true if l is a palindrome, otherwise return false.*/
 public class PalindromeLinkedLists {
 
-
     boolean isListPalindrome(ListNode<Integer> l) {
         ListNode temp =l;
         int size = 1;
@@ -45,7 +44,6 @@ public class PalindromeLinkedLists {
             size++;
         }
         int counter =0;
-        temp = null;
         ListNode current = l, prev = null;
         while (current != null ) {
             if (counter >= size/2){
@@ -65,7 +63,6 @@ public class PalindromeLinkedLists {
             firstNode = firstNode.next;
             lastNode = lastNode.next;
         }
-
         return true;
     }
 

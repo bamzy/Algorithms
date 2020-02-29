@@ -1,5 +1,5 @@
 package com.bamzy;
-    /*Print all permutation of String both iterative and Recursive way?*/
+/*Print all permutation of String both iterative and Recursive way?*/
 import java.util.ArrayList;
 
 public class StringPermutation {
@@ -13,17 +13,17 @@ public class StringPermutation {
         result = new char[characters.size()];
         size = input.length();
         dooo(characters, 0 );
-
     }
+
     public void dooo(ArrayList<Character> list, int index ){
         if (0 == list.size()){
             System.out.println(result );
             return;
         }
+
         for (Character character : list) {
             if (index < size )
                 result[index] = character;
-//            System.out.print(character);
             ArrayList<Character> dummy = (ArrayList<Character>) list.clone();
             dummy.remove(character);
             dooo(dummy, index++);
@@ -50,7 +50,6 @@ public class StringPermutation {
         String result;
         for (int i=0; i<input.length(); i++) {
             for (int j = 0; j < input.length(); j++) {
-//                result.charAt(i) =
             }
         }
     }

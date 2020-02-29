@@ -28,22 +28,29 @@ public class Sudoku {
                 }
             }
         }
+
         int multiplication = size/squareSize;
         for (int k=0;k<multiplication; k++) {
             for (int l = 0; l < multiplication; l++) {
-                int[] squareDupliates = new int[squareSize*squareSize+1];
-                for (int i = k*3; i < k*3 + squareSize; i++) {
-                    for (int j = l*3; j < l*3 + squareSize; j++) {
-                        if (grid[i][j] != '.') {
-                            colVal = Integer.parseInt(Character.toString(grid[i][j]));
-                            squareDupliates[colVal] = squareDupliates[colVal]+1;
-                            if (squareDupliates[colVal] > 1)
-                                return false;
-                        }
-                    }
-                }
+                int[] squareDuplicates = new int[squareSize*squareSize+1];
+                if (checkSquare(grid, squareSize, k, l, squareDuplicates)) return false;
             }
         }
         return true;
+    }
+
+    private boolean checkSquare(char[][] grid, int squareSize, int k, int l, int[] squareDuplicates) {
+        int colVal;
+        for (int i = k*3; i < k*3 + squareSize; i++) {
+            for (int j = l*3; j < l*3 + squareSize; j++) {
+                if (grid[i][j] != '.') {
+                    colVal = Integer.parseInt(Character.toString(grid[i][j]));
+                    squareDuplicates[colVal] = squareDuplicates[colVal]+1;
+                    if (squareDuplicates[colVal] > 1)
+                        return true;
+                }
+            }
+        }
+        return false;
     }
 }

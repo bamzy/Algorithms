@@ -30,10 +30,7 @@ You are interested in the maximum of prefix[i] and min[i].
 public class ArrayMaxConsecutiveSum {
     int arrayMaxConsecutiveSum2(int[] inputArray)
     {
-
-
         int size = inputArray.length;
-
         int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
 
         for (int i = 0; i < size; i++)
@@ -45,7 +42,5 @@ public class ArrayMaxConsecutiveSum {
                 max_ending_here = 0;
         }
         return max_so_far;
-
-
     }
 }

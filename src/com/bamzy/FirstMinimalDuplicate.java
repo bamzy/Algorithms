@@ -43,10 +43,9 @@ public class FirstMinimalDuplicate {
             else if (!duplicates.containsKey(a[i]))
                 duplicates.put(a[i],i);
         }
-
         return -1;
-
     }
+
     int firstDuplicateWithArray(int[] a) {
         int[] duplicates = new int[a.length+1];
         for (int i=0; i< a.length; i++){

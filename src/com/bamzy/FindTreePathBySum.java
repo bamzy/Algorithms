@@ -38,8 +38,5 @@ public class FindTreePathBySum {
             return false;
         }
         return (hasPathSum(root.left,sum- root.val ) || hasPathSum(root.right,sum-root.val));
-
-
-
     }
 }

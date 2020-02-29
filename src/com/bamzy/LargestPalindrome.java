@@ -6,7 +6,6 @@ public class LargestPalindrome {
         int maxPalindromeSize = 0;
         for (int i=0 ; i < input.length() ; i++){
             for (int j= input.length()-1 ; j > i ; j--){
-
                 if (input.charAt(i) == input.charAt(j)){
                     int length = j-i+1;
                     boolean flag = true;

@@ -69,6 +69,7 @@ public class TraverseTree {
         }
         return Long.parseLong(result);
     }
+
     void recTraverse(Tree<Integer> t, ArrayList<Integer> numbers){
         numbers.add(t.value);
         ArrayList listCopy1 = new ArrayList(numbers);
@@ -82,6 +83,7 @@ public class TraverseTree {
                 recTraverse(t.right,listCopy2);
         }
     }
+
     long digitTreeSum(Tree<Integer> t) {
         ArrayList<Integer> numbers = new ArrayList<>();
         recTraverse(t, numbers);

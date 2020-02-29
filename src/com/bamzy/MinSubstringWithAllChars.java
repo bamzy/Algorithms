@@ -25,7 +25,6 @@ public class MinSubstringWithAllChars {
                 }
             }
         }
-
         return s.substring(finalStart,finalEnd);
     }
 

@@ -8,7 +8,7 @@ public class LongestConsecutiveSequence {
         int maxSize = 0;
         int tempSize;
         HashMap<Integer,Boolean> list = new HashMap<>();
-        // Initialize the hashmap
+        // Initialize the HashMap
         for (int value : input) {
             list.put(value,false);
         }
@@ -39,7 +39,6 @@ public class LongestConsecutiveSequence {
                 if (tempSize > maxSize)
                     maxSize = tempSize;
         }
-
         return maxSize;
     }
 }

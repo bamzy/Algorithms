@@ -13,9 +13,7 @@ What if, instead of being able to climb 1 or 2 steps at a time,
 you could climb any number from a set of positive integers X?
 For example, if X = {1, 3, 5}, you could climb 1, 3, or 5 steps at a time. Generalize your function to take in X.*/
 public class StepClimber {
-
     public int simplePathCalculator(int N){
-        int totalWays = 0;
         if (N <= 0)
             return 0;
         else if (N == 1)
@@ -25,8 +23,8 @@ public class StepClimber {
         else {
            return  simplePathCalculator(N-2) + simplePathCalculator(N - 1);
         }
-
     }
+
     public int advancedPathCalculator(int N, int[] allowedSteps) {
         int totalWays = 0;
         if (N < 0)
@@ -40,7 +38,6 @@ public class StepClimber {
                 else
                     return 0;
             }
-
         } else {
             for (int allowedStep : allowedSteps) {
                 if (N - allowedStep >= 0)

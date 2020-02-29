@@ -3,13 +3,11 @@ package com.bamzy;
 public class HugeLinkedListNumbers {
     ListNode<Integer> addTwoHugeNumbers(ListNode<Integer> a, ListNode<Integer> b) {
         ListNode<Integer> temp = a,prev1 = null, prev2=null, next1,next2,prev;
-        int size1=0,size2=0;
         while (temp != null) {
             next1 = temp.next;
             temp.next =prev1;
             prev1 = temp;
             temp = next1;
-            size1++;
         }
         temp = b;
         while (temp != null) {
@@ -17,7 +15,6 @@ public class HugeLinkedListNumbers {
             temp.next =prev2;
             prev2 = temp;
             temp = next2;
-            size2++;
         }
         int carryOver = 0;
         ListNode<Integer> head = new ListNode<>(0);
@@ -47,7 +44,6 @@ public class HugeLinkedListNumbers {
         }
         ListNode temp2 = head.next;
         prev2=null;
-        next2 = null;
         while (temp2 != null) {
             next2 = temp2.next;
             temp2.next =prev2;

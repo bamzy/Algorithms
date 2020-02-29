@@ -45,7 +45,6 @@ public class FindLongestSubArrayBySum {
     }
 
     private boolean isSumEqual(int[] sums, int i, int j, int s) {
-
         if (sums[j+1]-sums[i] == s)
             return true;
         else return false;

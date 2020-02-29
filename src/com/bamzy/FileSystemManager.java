@@ -59,34 +59,22 @@ import java.util.ArrayList;
 public class FileSystemManager {
 //    String carriageReturn = String.valueOf((char)12);
     String carriageReturn = "\n";
-    class FileNode {
-        FileNode(String name,boolean isFile, int rank,FileNode parent) {
-            value = name;
-            this.isFile = isFile;
-            this.rank = rank;
-            this.parent = parent;
-            children = new ArrayList<>();
-        }
-        String value;
-        boolean isFile;
-        FileNode parent;
-        int rank;
-        ArrayList<FileNode> children;
-    }
+
     void parseRest(String text, FileNode parent){
-        int count = 0;
+        int count = 0, index;
+        String name;
+
         while (text.substring(0, 1).equals("\t")){
             count++;
             text = text.substring(1);
         }
-        int index = text.indexOf(carriageReturn);
 
-        String name;
+        index = text.indexOf(carriageReturn);
         if (index != -1 )
             name= text.substring(0, index);
         else
             name = text;
-        FileNode newElement = null ;
+        FileNode newElement;
         if (name.contains(".")){
             if (count == parent.rank + 1 || (count == parent.rank && count == 0) ) {
                 newElement = new FileNode(name, true, count,parent);

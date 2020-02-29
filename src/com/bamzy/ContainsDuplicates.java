@@ -28,11 +28,7 @@ public class ContainsDuplicates {
         }
         return false;
     }
-    int modulo(int a){
-        if (a > 0 )
-            return a%100000007;
-        else return 1000000007+a;
-    }
+
     int sumInRange(int[] nums, int[][] queries) {
         BigInteger big = new BigInteger("1000000007");
         BigInteger sums[] = new BigInteger[nums.length+1];

@@ -26,7 +26,6 @@ public class SortedSquareArray {
                 addToResult(input[lp]);
                 lp--;
             }
-
         }
         return result;
 
