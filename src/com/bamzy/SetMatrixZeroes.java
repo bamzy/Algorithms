@@ -39,7 +39,13 @@ Follow up:
 
 A straight forward solution using O(mn) space is probably a bad idea.
 A simple improvement uses O(m + n) space, but still not the best solution.
-Could you devise a constant space solution?*/
+Could you devise a constant space solution?
+
+Hint: If any cell of the matrix has a zero we can
+record its row and column number using additional memory.
+But if you don't want to use extra memory then you can manipulate
+the array instead. i.e. simulating exactly what the question says.
+*/
 public class SetMatrixZeroes {
     public void setZeroes(int[][] matrix) {
         Set<Integer> rows = new HashSet<>();
@@ -59,7 +65,7 @@ public class SetMatrixZeroes {
         }
         for(int i = 0 ; i < matrix.length ; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                if (rows.contains(i) && columns.contains(j))
+                if (rows.contains(i) || columns.contains(j))
                     matrix[i][j] = 0;
             }
         }
