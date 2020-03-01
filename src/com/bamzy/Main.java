@@ -3,7 +3,8 @@ package com.bamzy;
 public class Main {
 
     public static void main(String[] args) {
-        ThreeSum threeSum = new ThreeSum();
-        threeSum.findThreeSum(new int[]{-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0});
+        SetMatrixZeroes setMatrixZeroes = new SetMatrixZeroes();
+        setMatrixZeroes.setZeroes(new int[][]{{0,1,2,0}, {3,4,5,2}, {1,3,1,5}});
+
     }
 }
