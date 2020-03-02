@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         SetMatrixZeroes setMatrixZeroes = new SetMatrixZeroes();
-        setMatrixZeroes.setZeroes(new int[][]{{0,1,2,0}, {3,4,5,2}, {1,3,1,5}});
+        setMatrixZeroes.inPlaceSetZeroes(new int[][]{{0,1,2,0}, {3,4,5,2}, {1,3,1,5}});
 
     }
 }

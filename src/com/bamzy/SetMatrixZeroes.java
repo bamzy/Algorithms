@@ -71,4 +71,34 @@ public class SetMatrixZeroes {
         }
         return;
     }
+
+    public void inPlaceSetZeroes(int[][] matrix) {
+        for(int i = 0 ; i < matrix.length ; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == 0) {
+                    setZeroRowColumn(matrix, i,j);
+                }
+            }
+        }
+        for(int i = 0 ; i < matrix.length ; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (matrix[i][j] == Integer.MAX_VALUE) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+
+        return;
+    }
+
+    private void setZeroRowColumn(int[][] matrix, int row, int column) {
+        for (int i=0; i< matrix[0].length ; i++)
+            if (matrix[row][i] != 0)
+                matrix[row][i] = Integer.MAX_VALUE;
+        for (int i=0; i< matrix.length ; i++)
+            if (matrix[i][column] != 0)
+                matrix[i][column] = Integer.MAX_VALUE;
+        matrix[row][column] = 0;
+    }
 }
