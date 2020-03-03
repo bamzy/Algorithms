@@ -1,9 +1,6 @@
 package com.bamzy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class GroupAnagrams {
     class Node implements Comparable{
@@ -33,6 +30,7 @@ public class GroupAnagrams {
     }
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> temp = new ArrayList<>();
+        Map<String, List> result = new HashMap<>();
         List<Node> srca = new ArrayList<>();
         for (int i = 0 ; i < strs.length ; i++) {
             char[] chars = strs[i].toCharArray();
@@ -43,11 +41,11 @@ public class GroupAnagrams {
         }
         Collections.sort(srca);
         int counter = -1;
-        String oldSorted = "";
+        String oldSorted = null;
         for (int i=0 ; i < srca.size() ; i++){
             if (srca.get(i).getSorted().equals(oldSorted))
                 temp.get(counter).add(srca.get(i).getValue());
-            else {
+            else  {
                 counter++;
                 List<String> tempList = new ArrayList<>();
                 temp.add(tempList);
@@ -58,14 +56,4 @@ public class GroupAnagrams {
         return temp;
     }
 
-//    private boolean isAnagram(String first, String second) {
-//        char[] charFirst = first.toCharArray();
-//        char[] charSecond = second.toCharArray();
-//        Arrays.sort(charFirst);
-//        Arrays.sort(charSecond);
-//        if (charFirst.equals(charSecond))
-//            return true;
-//        return false;
-//
-//    }
 }
