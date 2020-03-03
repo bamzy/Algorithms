@@ -1,28 +1,25 @@
 package com.bamzy;
 
+import javax.swing.*;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class LongestSubstringWithoutRepeating {
     public int lengthOfLongestSubstring(String s) {
-        //abcddccd
-        int n = s.length();
-        Set<Character> set = new HashSet<>();
-        int ans = 0, i = 0, j = 0;
-        while (i < n && j < n) {
-            // try to extend the range [i, j]
-            if (!set.contains(s.charAt(j))){
-                set.add(s.charAt(j++));
-                ans = Math.max(ans, j - i);
-            }
-            else {
-                set.remove(s.charAt(i++));
+        int start = 0, end = 0, size = 0;
+        Map<Character, Integer> charIndex = new HashMap<>();
+        while (end < s.length()){
+            if (!charIndex.containsKey(s.charAt(end)) || (charIndex.containsKey(s.charAt(end)) && charIndex.get(s.charAt(end)) < start)){
+                charIndex.put(s.charAt(end), end++);
+                size = Math.max(size, end-start);
+            } else {
+                start = charIndex.get(s.charAt(end))+1;
+                charIndex.put(s.charAt(end),end++);
             }
         }
-        return ans;
-
-
-
+        return size;
 
     }
 }
