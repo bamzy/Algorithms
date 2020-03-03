@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        SortCharsByOccurence sortCharsByOccurence = new SortCharsByOccurence();
-        System.out.println(sortCharsByOccurence.sortByFrequency("abcadebfccg"));
+        GroupAnagrams groupAnagrams = new GroupAnagrams();
+        groupAnagrams.groupAnagrams(new String[]{"cat","bat","tac","act", "tab", "sis"});
     }
 }

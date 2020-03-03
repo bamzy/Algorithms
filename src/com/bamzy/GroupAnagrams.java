@@ -25,15 +25,16 @@ public class GroupAnagrams {
 
         @Override
         public int compareTo(Object o) {
-            if (((Node)o).sorted.equals(this.sorted))
-                return 0;
-            else return -1;
+
+            Node ref = (Node) o;
+            return ref.getSorted().compareTo(this.sorted);
+
         }
     }
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> temp = new ArrayList<>();
         List<Node> srca = new ArrayList<>();
-        for (int i = 0 ; i < strs.length-1 ; i++) {
+        for (int i = 0 ; i < strs.length ; i++) {
             char[] chars = strs[i].toCharArray();
             Arrays.sort(chars);
             String sortedStr = new String(chars);
@@ -48,6 +49,8 @@ public class GroupAnagrams {
                 temp.get(counter).add(srca.get(i).getValue());
             else {
                 counter++;
+                List<String> tempList = new ArrayList<>();
+                temp.add(tempList);
                 temp.get(counter).add(srca.get(i).getValue());
             }
             oldSorted = srca.get(i).getSorted();
