@@ -4,6 +4,6 @@ public class Main {
 
     public static void main(String[] args) {
         LongestPalindromicSubstring longestPalindromicSubstring = new LongestPalindromicSubstring();
-        System.out.println(longestPalindromicSubstring.longestPalindrome("cbbd"));
+        System.out.println(longestPalindromicSubstring.longestPalindrome1("cbbd"));
     }
 }
