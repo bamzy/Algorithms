@@ -15,6 +15,6 @@ public class Main {
         a.next = b; b.next = c; c.next = d; d.next = e;
         f.next =g;g.next = h; h.next = c;
         IntersectionOfLinkedLists intersectionOfLinkedLists = new IntersectionOfLinkedLists();
-        intersectionOfLinkedLists.getIntersectionNode(a,f);
+        System.out.println(intersectionOfLinkedLists.getIntersectionNode(a,f).val);
     }
 }

@@ -52,8 +52,23 @@ You may assume there are no cycles anywhere in the entire linked structure.
 Your code should preferably run in O(n) time and use only O(1) memory.*/
 public class IntersectionOfLinkedLists {
     public LListNode getIntersectionNode(LListNode headA, LListNode headB) {
-        LListNode endA = reverse(headA);
-        LListNode endB = reverse(headB);
+        LListNode tempA = headA, tempB = headB;
+        if(headA == null || headB == null)
+            return null;
+        if(headA == headB)
+            return headA;
+        while (tempA !=null || tempB != null){
+            if (tempA == tempB)
+                return tempA;
+            else if (tempA == null)
+                tempA = headB;
+            else if (tempB == null)
+                tempB = headA;
+            else {
+                tempA = tempA.next;
+                tempB = tempB.next;
+            }
+        }
         return null;
     }
 
