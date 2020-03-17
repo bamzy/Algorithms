@@ -8,9 +8,10 @@ public class Main {
 //                                                ,{1,1,0,1,0}
 //                                                ,{1,1,0,0,0}
 //                                                ,{0,0,0,0,0}});
-        detectIslands.numIslands(new char[][]{   {'1','0','0','0','1'}
-                                                ,{'1','0','0','0','1'}
-                                                ,{'1','0','0','0','1'}
-                                                ,{'1','1','1','1','1'}});
+//        System.out.println(detectIslands.numIslands(new char[][]{   {'1','0','0','0','1'}
+//                                                ,{'1','0','1','0','1'}
+//                                                ,{'1','0','0','0','1'}
+//                                                ,{'1','1','1','1','1'}}));
+        System.out.println(detectIslands.numIslands(new char[][]{{'1'},{'1'}}));
     }
 }
