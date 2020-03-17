@@ -30,6 +30,39 @@ public class DetectIslands {
             return (i +"|"+ j).hashCode();
         }
     }
+    public int numIslandsRec(char[][] grid) {
+        HashMap<Integer, HashMap<String,Pair>> maps = new HashMap<>();
+        for (int i=0; i< grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == '1') {
+                    traverseArray(grid, maps, i, j, 0);
+                }
+            }
+        }
+
+    }
+
+    private void traverseArray(char[][] grid, HashMap<Integer, HashMap<String, Pair>> maps, int i, int j,int index) {
+        for (Integer integer : maps.keySet()) {
+            HashMap<String, Pair> temp = maps.get(integer);
+            if (temp.containsKey(i+"|"+j))
+                return;
+        }
+        HashMap<String, Pair> temp = new HashMap<>();
+        temp.put(i+"|"+j, new Pair(i,j));
+
+        maps.put(index,temp);
+        if (i < grid.length-1 && grid[i+1][j] == '1' )
+            traverseArray(grid,maps,i+1,j, index);
+//        if (i > 0 && grid[i-1][j] == '1' )
+//            traverseArray(grid,maps,i-1,j, index);
+        if (j < grid[i].length-1 && grid[i][j+1] == '1' )
+            traverseArray(grid,maps,i,j+1, index);
+//        if (j > 0 && grid[i][j-1] == '1' )
+//            traverseArray(grid,maps,i,j-1, index);
+
+    }
+
     public int numIslands(char[][] grid) {
         int result = 1;
         boolean currentIsland = false;
@@ -38,7 +71,7 @@ public class DetectIslands {
         for (int i=0; i< grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == '1') {
-                    var i1 = belongsTo(grid, i, j, maps);
+                    int i1 = belongsTo(grid, i, j, maps);
                     if (i1 != -1) {
                         maps.get(i1).put(i+"|"+j,new Pair(i, j));
                     } else {
@@ -49,8 +82,8 @@ public class DetectIslands {
                 }
             }
         }
-        maps = consolidate(maps);
         //Needs Consolidation
+        maps = consolidate(maps);
         return maps.size();
     }
 
@@ -60,14 +93,11 @@ public class DetectIslands {
             HashMap<String, Pair> a = maps.get(id);
             for (Map.Entry mapElement : a.entrySet()) {
                 String key = (String)mapElement.getKey();
-
                 for (Integer tempId : maps.keySet()) {
                     if (!tempId.equals(id) && a.containsKey(key)) {
                         HashMap<String, Pair> temp = new HashMap<>();
                         temp.putAll(maps.get(id));
                         temp.putAll(maps.get(tempId));
-//                        maps.get(id).putAll(maps.get(tempId));
-//                        maps.get(tempId).clear();
                         break;
                     }
                 }
