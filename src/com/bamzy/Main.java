@@ -3,15 +3,14 @@ package com.bamzy;
 public class Main {
 
     public static void main(String[] args) {
-        DetectIslands detectIslands = new DetectIslands();
-//        detectIslands.numIslands(new char[][]{   {1,1,1,1,0}
-//                                                ,{1,1,0,1,0}
-//                                                ,{1,1,0,0,0}
-//                                                ,{0,0,0,0,0}});
-//        System.out.println(detectIslands.numIslands(new char[][]{   {'1','0','0','0','1'}
-//                                                ,{'1','0','1','0','1'}
-//                                                ,{'1','0','0','0','1'}
-//                                                ,{'1','1','1','1','1'}}));
-        System.out.println(detectIslands.numIslands(new char[][]{{'1'},{'1'}}));
+        TreeNode a = new TreeNode(5);
+        TreeNode b = new TreeNode(3);
+        TreeNode c = new TreeNode(6);
+        TreeNode d = new TreeNode(2);
+        TreeNode e = new TreeNode(4);
+        TreeNode f = new TreeNode(1);
+        a.left =b; a.right = c; b.left=d; b.right = e; d.left = f;
+        KthSmallestElementBST kthSmallestElementBST = new KthSmallestElementBST();
+        System.out.println(kthSmallestElementBST.kthSmallest(a,1));
     }
 }
