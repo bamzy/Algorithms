@@ -44,34 +44,44 @@ public class XOrderTraversal {
         if (root == null)
             return result;
         List<TreeNode> queue = new ArrayList<>();
-        boolean directionFlag = true;
-
+        boolean directionFlag = false;
+        List<Integer> a = new ArrayList<>();
+        a.add(root.val);
+        result.add(a);
         queue.add(root);
         while (!queue.isEmpty()){
             List<Integer> temp = new ArrayList<>();
             List<TreeNode> t1 = new ArrayList<>();
             if (directionFlag) {
                 for (TreeNode val : queue) {
-                    temp.add(val.val);
-                    if (directionFlag)
-                    if (val.left!=null)
+//                    temp.add(val.val);
+                    if (val.left!=null) {
+                        temp.add(val.left.val);
                         t1.add(val.left);
-                    if (val.right!=null)
+                    }
+                    if (val.right!=null) {
                         t1.add(val.right);
+                        temp.add(val.right.val);
+                    }
                 }
             } else {
                 for (int i = queue.size()-1; i>=0; i--){
-                    temp.add(queue.get(i).val);
+//                    temp.add(queue.get(i).val);
 
-                    if (queue.get(i).right!=null)
+                    if (queue.get(i).right!=null) {
+                        temp.add(queue.get(i).right.val);
                         t1.add(queue.get(i).right);
-                    if (queue.get(i).left!=null)
+                    }
+                    if (queue.get(i).left!=null) {
+                        temp.add(queue.get(i).left.val);
                         t1.add(queue.get(i).left);
+                    }
                 }
             }
             queue.clear();
             queue.addAll(t1);
-            result.add(temp);
+            if (!temp.isEmpty())
+                result.add(temp);
             directionFlag = !directionFlag;
         }
         return result;
