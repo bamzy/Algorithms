@@ -40,49 +40,40 @@ public class XOrderTraversal {
         res.add(root.val);
     }
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        if(root == null) return new ArrayList<>();
         List<List<Integer>> result = new ArrayList<>();
-        if (root == null)
-            return result;
-        List<TreeNode> queue = new ArrayList<>();
-        boolean directionFlag = false;
-        List<Integer> a = new ArrayList<>();
-        a.add(root.val);
-        result.add(a);
-        queue.add(root);
-        while (!queue.isEmpty()){
-            List<Integer> temp = new ArrayList<>();
-            List<TreeNode> t1 = new ArrayList<>();
-            if (directionFlag) {
-                for (TreeNode val : queue) {
-//                    temp.add(val.val);
-                    if (val.left!=null) {
-                        temp.add(val.left.val);
-                        t1.add(val.left);
-                    }
-                    if (val.right!=null) {
-                        t1.add(val.right);
-                        temp.add(val.right.val);
-                    }
+        Queue<TreeNode> bfsQueue = new LinkedList<>();
+        int count = 0;
+        bfsQueue.add(root);
+        int levelSize = bfsQueue.size();
+        List<Integer> first = new ArrayList<>();
+        first.add(root.val);
+        result.add(first);
+        boolean flip = true;
+        while(!bfsQueue.isEmpty()) {
+            TreeNode curr = bfsQueue.poll();
+            if(curr.left != null) {
+                bfsQueue.offer(curr.left);
+            }
+            if(curr.right != null) {
+                bfsQueue.offer(curr.right);
+            }
+            count++;
+            if(count == levelSize){
+                count = 0;
+                levelSize = bfsQueue.size();
+                List<Integer> currList = new LinkedList<>();
+                for(TreeNode current : bfsQueue) {
+                    currList.add(current.val);
                 }
-            } else {
-                for (int i = queue.size()-1; i>=0; i--){
-//                    temp.add(queue.get(i).val);
-
-                    if (queue.get(i).right!=null) {
-                        temp.add(queue.get(i).right.val);
-                        t1.add(queue.get(i).right);
-                    }
-                    if (queue.get(i).left!=null) {
-                        temp.add(queue.get(i).left.val);
-                        t1.add(queue.get(i).left);
-                    }
+                if(flip) {
+                    Collections.reverse(currList);
+                }
+                flip = !flip;
+                if(!currList.isEmpty()){
+                    result.add(currList);
                 }
             }
-            queue.clear();
-            queue.addAll(t1);
-            if (!temp.isEmpty())
-                result.add(temp);
-            directionFlag = !directionFlag;
         }
         return result;
     }
