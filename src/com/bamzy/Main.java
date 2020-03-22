@@ -3,7 +3,7 @@ package com.bamzy;
 public class Main {
 
     public static void main(String[] args) {
-        LetterCombinationPhoneNumber letterCombinationPhoneNumber = new LetterCombinationPhoneNumber();
-        letterCombinationPhoneNumber.letterCombinations("29");
+        GenerateParentheses generateParentheses = new GenerateParentheses();
+        System.out.printf(generateParentheses.generateParenthesis(3).toString());
     }
 }
