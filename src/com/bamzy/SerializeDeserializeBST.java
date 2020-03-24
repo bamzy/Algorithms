@@ -1,10 +1,11 @@
 package com.bamzy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SerializeDeserializeBST {
     // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
+    public String serializeToArray(TreeNode root) {
         Integer[] res = new Integer[100];
         String st = "[";
         rec(0,root,res);
@@ -33,8 +34,51 @@ public class SerializeDeserializeBST {
     }
 
     // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
-        return null;
+    public TreeNode deserializeFromArray(String data) {
+        String[] arr = data.substring(1,data.length()-1).split(",");
+        HashMap<Integer, TreeNode> map = new HashMap<>();
+        TreeNode root = null;
+
+
+        for (int i = 0; i<arr.length;i++){
+            TreeNode a;
+            if (!arr[i].equals("null")) {
+                int val = Integer.parseInt(arr[i]);
+                if (map.containsKey(i))
+                    a = map.get(i);
+                else {
+                    a = new TreeNode(val);
+                    map.put(i,a);
+                }
+
+            }
+            else
+                continue;
+            if (2 * i + 1 < arr.length) {
+                if (!arr[2*i+1].equals("null") ) {
+                    if (map.containsKey(2*i+1))
+                        a.left = map.get(2*i+1);
+                    else {
+                        a.left = new TreeNode(Integer.parseInt(arr[2 * i + 1]));
+                        map.put(2 * i + 1, a.left);
+                    }
+                }
+                else a.left = null;
+            }
+            if (2 * i + 2 < arr.length) {
+                if (!arr[2*i+2].equals("null") ) {
+                    if (map.containsKey(2*i+2))
+                        a.right = map.get(2*i+2);
+                    else {
+                        a.right = new TreeNode(Integer.parseInt(arr[2 * i + 2]));
+                        map.put(2 * i + 2, a.right);
+                    }
+                }
+                else a.right = null;
+            }
+        }
+
+        return map.get(0);
     }
 
     public TreeNode constructTreeFromPreOrderInOrder(String[] inOrder, String[] preOrder){
