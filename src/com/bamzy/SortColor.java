@@ -20,4 +20,23 @@ public class SortColor {
                 nums[i] = 2;
         }
     }
+    public void sortColors1(int[] nums) {
+        int start=0, end = nums.length-1, mid = 0, temp=0;
+       while (mid <= end)
+            if (nums[mid] == 1){
+                mid++;
+            } else if (nums[mid] == 2) {
+                temp = nums[mid];
+                nums[mid] = nums[end];
+                nums[end] = temp;
+                end--;
+            } else if (nums[mid] == 0){
+                temp = nums[mid];
+                nums[mid] = nums[start];
+                nums[start] = temp;
+                start++;
+                mid++;
+        }
+
+    }
 }
