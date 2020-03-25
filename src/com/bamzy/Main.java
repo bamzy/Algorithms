@@ -8,11 +8,11 @@ public class Main {
         TreeNode c = new TreeNode(3);
         TreeNode d = new TreeNode(4);
         TreeNode e = new TreeNode(5);
+        TreeNode f = new TreeNode(1);
         a.left = b; b.left = c; c.left = d; d.left = e;
         SerializeDeserializeBST codec = new SerializeDeserializeBST();
-        TreeNode res = codec.deserializeFromArray(codec.serializeToArray(a));
-        codec.constructTreeFromPreOrderInOrder(new String[]{"4","2","5","1","6","3"},new String[]{"1","2","4","5","3","6"});
-
+        TreeNode res = codec.deserialize(codec.serialize(f));
+        System.out.println(res);
 
 
     }

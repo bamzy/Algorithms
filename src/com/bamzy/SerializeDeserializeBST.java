@@ -2,83 +2,37 @@ package com.bamzy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SerializeDeserializeBST {
     // Encodes a tree to a single string.
-    public String serializeToArray(TreeNode root) {
-        Integer[] res = new Integer[100];
-        String st = "[";
-        rec(0,root,res);
-        int last=0;
-        for (int i=0; i<res.length; i++) {
-            if (res[i] != null)
-                last = i;
-        }
-        for (int i =0;i<last;i++){
-            if (res[i] == null)
-                st = st + "null,";
-            else
-                st = st + res[i] + ",";
-        }
-        st= st + res[last] + "]";
 
+
+    public String serialize(TreeNode root) {
+        if (root == null) return "[]";
+        List<Integer> preOrder = preorderTraversal(root);
+        List<Integer> inOrder = inorderTraversal(root);
+        String st = "[";
+        for (int i =0;i<preOrder.size()-1;i++){
+                st = st + preOrder.get(i) + ",";
+        }
+        st= st + preOrder.get(preOrder.size()-1) + "]&[";
+        for (int i =0;i<inOrder.size()-1;i++){
+            st = st + inOrder.get(i) + ",";
+        }
+        st= st + inOrder.get(inOrder.size()-1) + "]";
         return st;
     }
 
-    private void rec(int i, TreeNode root, Integer[] res) {
-        if (root == null)
-            return;
-        res[i]=root.val;
-        rec(2*i+1,root.left,res);
-        rec(2*i+2,root.right,res);
-    }
+
 
     // Decodes your encoded data to tree.
-    public TreeNode deserializeFromArray(String data) {
-        String[] arr = data.substring(1,data.length()-1).split(",");
-        HashMap<Integer, TreeNode> map = new HashMap<>();
-        TreeNode root = null;
-
-
-        for (int i = 0; i<arr.length;i++){
-            TreeNode a;
-            if (!arr[i].equals("null")) {
-                int val = Integer.parseInt(arr[i]);
-                if (map.containsKey(i))
-                    a = map.get(i);
-                else {
-                    a = new TreeNode(val);
-                    map.put(i,a);
-                }
-
-            }
-            else
-                continue;
-            if (2 * i + 1 < arr.length) {
-                if (!arr[2*i+1].equals("null") ) {
-                    if (map.containsKey(2*i+1))
-                        a.left = map.get(2*i+1);
-                    else {
-                        a.left = new TreeNode(Integer.parseInt(arr[2 * i + 1]));
-                        map.put(2 * i + 1, a.left);
-                    }
-                }
-                else a.left = null;
-            }
-            if (2 * i + 2 < arr.length) {
-                if (!arr[2*i+2].equals("null") ) {
-                    if (map.containsKey(2*i+2))
-                        a.right = map.get(2*i+2);
-                    else {
-                        a.right = new TreeNode(Integer.parseInt(arr[2 * i + 2]));
-                        map.put(2 * i + 2, a.right);
-                    }
-                }
-                else a.right = null;
-            }
-        }
-
-        return map.get(0);
+    public TreeNode deserialize(String data) {
+        if (data.equals("[]")) return null;
+        String[] orders = data.split("&");
+        String[] arrPre = orders[0].substring(1,orders[0].length()-1).split(",");
+        String[] arrIn = orders[1].substring(1,orders[1].length()-1).split(",");
+        return constructTreeFromPreOrderInOrder(arrIn,arrPre);
     }
 
     public TreeNode constructTreeFromPreOrderInOrder(String[] inOrder, String[] preOrder){
@@ -94,7 +48,9 @@ public class SerializeDeserializeBST {
 
         /* Pick current node from Preorder traversal using preIndex
            and increment preIndex */
-        TreeNode tNode = new TreeNode(Integer.parseInt(preOrder[preIndex++]));
+        TreeNode tNode = null;
+        if (preIndex < preOrder.length)
+            tNode = new TreeNode(Integer.parseInt(preOrder[preIndex++]));
 
         /* If this node has no children then return */
         if (inStart == inEnd)
@@ -121,5 +77,30 @@ public class SerializeDeserializeBST {
         }
         return i;
     }
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        preOrder(root,res);
+        return res;
+    }
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        inOrder(root,res);
+        return res;
+    }
+    private void preOrder(TreeNode root, List<Integer> res) {
+        if (root == null)
+            return;
+        res.add(root.val);
+        preOrder(root.left,res);
+        preOrder(root.right,res);
+    }
+    private void inOrder(TreeNode root, List<Integer> res) {
+        if (root == null)
+            return;
+        inOrder(root.left,res);
+        res.add(root.val);
+        inOrder(root.right,res);
+    }
+
 
 }
