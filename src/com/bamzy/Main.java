@@ -13,8 +13,12 @@ public class Main {
         LListNode f = new LListNode(6);
         LListNode g = new LListNode(7);
         LListNode h = new LListNode(8);
-        a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h;
+        a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; ;
        RevereseKgroupLinkedList revereseKgroupLinkedList = new RevereseKgroupLinkedList();
-       revereseKgroupLinkedList.reverseKGroup(a,3);
+       LListNode res = revereseKgroupLinkedList.reverseKGroup(a,3);
+       LListNode res1 = revereseKgroupLinkedList.reverseKGroup(a,2);
+       g.next = h;
+       LListNode res2 = revereseKgroupLinkedList.reverseKGroup(a,3);
+       return;
     }
 }
