@@ -45,29 +45,31 @@ public class RevereseKgroupLinkedList {
         SubsetReverseResult partialRes = null;
         while(prevNextStart != null){
             partialRes = reverseSubset(prevNextStart,k);
-            if (prevNewEnd!= null)
-                prevNewEnd.next = partialRes.newStart;
-            if (prevNewStart == null)
-                prevNewStart = partialRes.getNewStart();
-             prevNewEnd = partialRes.getNewEnd();
-             prevNextStart = partialRes.getNextStart();
+            if (partialRes != null) {
+                if (prevNewEnd != null)
+                    prevNewEnd.next = partialRes.newStart;
+                if (prevNewStart == null)
+                    prevNewStart = partialRes.getNewStart();
+                prevNewEnd = partialRes.getNewEnd();
+                prevNextStart = partialRes.getNextStart();
+            } else return null;
         }
         return prevNewStart;
     }
     SubsetReverseResult reverseSubset(LListNode st, int k){
-        if (st == null)
-            return null;
+        if (st == null || k == 0)
+            return new SubsetReverseResult(null,null,null);
         LListNode temp = st,next=null, prev = null;
         int counter  = 1;
         while (counter<=k){
             if (temp == null) {
-                return reverseSubset(prev,counter);
+                return reverseSubset(prev,counter-1);
             }
-            counter++;
             next = temp.next;
             temp.next = prev;
             prev = temp;
             temp = next;
+            counter++;
         }
         return new SubsetReverseResult(prev,next,st);
     }
