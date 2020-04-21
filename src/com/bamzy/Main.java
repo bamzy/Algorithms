@@ -5,7 +5,16 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-       KthLargestElementInArray kthLargestElementInArray = new KthLargestElementInArray();
-       kthLargestElementInArray.findKthLargest(new int[]{3,2,3,1,2,4,5,5,6},4);
+        LListNode a = new LListNode(1);
+        LListNode b = new LListNode(2);
+        LListNode c = new LListNode(3);
+        LListNode d = new LListNode(4);
+        LListNode e = new LListNode(5);
+        LListNode f = new LListNode(6);
+        LListNode g = new LListNode(7);
+        LListNode h = new LListNode(8);
+        a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h;
+       RevereseKgroupLinkedList revereseKgroupLinkedList = new RevereseKgroupLinkedList();
+       revereseKgroupLinkedList.reverseKGroup(a,3);
     }
 }
