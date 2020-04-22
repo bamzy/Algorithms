@@ -31,42 +31,25 @@ LRUCache cache = new LRUCache( 2  );
         cache.get(3);       // returns 3
         cache.get(4);       // returns 4
 */
-class LRUCache {
-    private HashMap<Integer, Integer> map;
-    private Deque<Integer> deque;
-    private int N;
+class LRUCache extends LinkedHashMap<Integer, Integer>{
+    private int capacity;
 
     public LRUCache(int capacity) {
-        N = capacity;
-        map = new HashMap<Integer, Integer>();
-        deque = new LinkedList<>();
-
+        super(capacity, 0.75F, true);
+        this.capacity = capacity;
     }
 
     public int get(int key) {
-        if(map.containsKey(key)){
-            deque.remove(key);
-            deque.addFirst(key);
-            return map.get(key);
-        }
-        return -1;
+        return super.getOrDefault(key, -1);
     }
 
     public void put(int key, int value) {
-        if(map.containsKey(key)) {
-            deque.remove(key);
-            deque.addFirst(key);
-            map.put(key,value);
-        } else {
-            if(map.size() == N){
-                int temp = deque.removeLast();
-                map.remove(temp);
-                deque.addFirst(key);
-                map.put(key,value);
-            } else {
-                deque.addFirst(key);
-                map.put(key,value);
-            }
-        }
+        super.put(key, value);
     }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity;
+    }
+
 }
