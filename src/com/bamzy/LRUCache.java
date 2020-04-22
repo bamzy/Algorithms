@@ -1,8 +1,6 @@
 package com.bamzy;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
 Design and implement a data structure for Least Recently
@@ -34,32 +32,41 @@ LRUCache cache = new LRUCache( 2  );
         cache.get(4);       // returns 4
 */
 class LRUCache {
-    private LinkedHashMap<Integer, Integer> cache;
+    private HashMap<Integer, Integer> map;
+    private Deque<Integer> deque;
     private int N;
 
     public LRUCache(int capacity) {
-        this.N = capacity;
-        this.cache = new LinkedHashMap<Integer, Integer>();
+        N = capacity;
+        map = new HashMap<Integer, Integer>();
+        deque = new LinkedList<>();
+
     }
 
     public int get(int key) {
-        if(cache.containsKey(key)){
-            int result = cache.get(key);
-            cache.remove(key);
-            cache.put(key, result);
+        if(map.containsKey(key)){
+            deque.remove(key);
+            deque.addFirst(key);
+            return map.get(key);
         }
         return -1;
     }
 
     public void put(int key, int value) {
-        if(cache.containsKey(key)) {
-            cache.remove(key);
+        if(map.containsKey(key)) {
+            deque.remove(key);
+            deque.addFirst(key);
+            map.put(key,value);
         } else {
-            if(cache.size() == N){
-                Integer firstKey = cache.keySet().iterator().next();
-                cache.remove(firstKey);
+            if(map.size() == N){
+                int temp = deque.removeLast();
+                map.remove(temp);
+                deque.addFirst(key);
+                map.put(key,value);
+            } else {
+                deque.addFirst(key);
+                map.put(key,value);
             }
         }
-        cache.put(key, value);
     }
 }
