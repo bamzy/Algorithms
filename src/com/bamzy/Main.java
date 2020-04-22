@@ -1,19 +1,25 @@
 package com.bamzy;
 
-import java.util.*;
 
 public class Main {
-    // Refers to the max size of the map following which
-    // the removal takes place of the eldest entry
-    private static final int MAX = 6;
-    public static void main(String[] args) {
-        LRUCache lruCache = new LRUCache(2);
-        lruCache.put(1,1);
-        lruCache.put(2,2);
-        lruCache.put(3,3);
-        System.out.println(lruCache.get(2));
-        lruCache.put(4,4);
-        System.out.println(lruCache.get(2));
 
-    }
+        public static void main(String[] args) {
+            Runtime.Version version = Runtime.Version.parse("10.0.1");
+            printVersionInfo(version);
+            String versionDate = System.getProperty("java.version.date");
+            System.out.println("java.version.date: " + versionDate);
+
+            String vendorVersion = System.getProperty("java.vendor.version");
+            System.out.println("java.vendor.version: " + vendorVersion);
+        }
+
+        private static void printVersionInfo(Runtime.Version version) {
+            int feature = version.feature();
+            int interim = version.interim();
+            int update = version.update();
+            int patch = version.patch();
+            System.out.printf(" feature: %s%n interim: %s%n update: %s%n patch: %s%n",
+                    feature, interim, update, patch);
+        }
+
 }
