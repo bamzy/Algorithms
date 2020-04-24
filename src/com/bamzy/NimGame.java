@@ -23,7 +23,22 @@ you will never win the game;
              removed by your friend.
 */
 public class NimGame {
+    boolean alreadyWon = false;
     public boolean canWinNim(int n) {
-        return false;
+        rec(n,true);
+        return alreadyWon;
+    }
+    void rec(int total, boolean myTurn){
+        if (alreadyWon )
+            return;
+        if (total <= 3 && myTurn)
+            alreadyWon = true;
+        if (total <=3 && !myTurn)
+            return;
+        if (total == 0)
+            return;
+        rec(total-1,!myTurn);
+        rec(total-2,!myTurn);
+        rec(total-3,!myTurn);
     }
 }
