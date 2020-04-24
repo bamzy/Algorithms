@@ -23,5 +23,28 @@ Explanation:
 The above arrows point to positions where the corresponding
 */
 public class HammingDistance {
+    public int hammingDistance(int x, int y) {
+        int counter = 0;
+        boolean[] st1 = toBaseTwo(x);
+        boolean[] st2 = toBaseTwo(y);
 
+        for (int i = 0; i<32; i++){
+            if (st1[i]!=st2[i])
+                counter++;
+        }
+        return counter;
+    }
+    boolean[] toBaseTwo(int input){
+        boolean[] res = new boolean[32];
+        int index = 31;
+//        res[index--] = input % 2 != 1;
+        while (input > 0){
+            int resid = input%2;
+            if (resid != 0)
+                res[index] = true;
+            index--;
+            input = input/2;
+        }
+        return res;
+    }
 }
