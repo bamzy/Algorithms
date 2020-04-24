@@ -2,7 +2,8 @@ package com.bamzy;
 
 public class Main {
     public static void main(String[] args) {
-           NimGame nimGame = new NimGame();
-        System.out.println(nimGame.canWinNim(5));
+           HammingDistance hammingDistance = new HammingDistance();
+        System.out.println(hammingDistance.hammingDistance(4,1));
+
     }
 }
