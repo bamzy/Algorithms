@@ -25,20 +25,8 @@ you will never win the game;
 public class NimGame {
     boolean alreadyWon = false;
     public boolean canWinNim(int n) {
-        rec(n,true);
-        return alreadyWon;
+        return (n%4 != 0);
+
     }
-    void rec(int total, boolean myTurn){
-        if (alreadyWon )
-            return;
-        if (total <= 3 && myTurn)
-            alreadyWon = true;
-        if (total <=3 && !myTurn)
-            return;
-        if (total == 0)
-            return;
-        rec(total-1,!myTurn);
-        rec(total-2,!myTurn);
-        rec(total-3,!myTurn);
-    }
+
 }
