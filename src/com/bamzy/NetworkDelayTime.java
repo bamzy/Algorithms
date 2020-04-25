@@ -34,8 +34,42 @@ public class NetworkDelayTime {
         for (int i = 0; i< times.length; i++){
             table[times[i][0]][times[i][1]] = times[i][2];
         }
+        int[] res = dijkstra(table, K);
+        int max = Integer.MIN_VALUE;
+        for (int re : res) {
+            if (re > max)
+                max = re;
+        }
+        return max;
     }
-    void dijkstra(int graph[][], int src)
+    int minDistance(int dist[], Boolean sptSet[])
     {
+        // Initialize min value
+        int min = Integer.MAX_VALUE, min_index = -1;
+        for (int v = 0; v < dist.length; v++)
+            if (sptSet[v] == false && dist[v] <= min) {
+                min = dist[v];
+                min_index = v;
+            }
+        return min_index;
+    }
+    int[] dijkstra(int graph[][], int src) {
+        int dist[] = new int[graph.length];
+        Boolean visited[] = new Boolean[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            dist[i] = Integer.MAX_VALUE;
+            visited[i] = false;
+        }
+        dist[src] = 0;
+
+        for (int count = 0; count < graph.length - 1; count++) {
+            int u = minDistance(dist, visited);
+            visited[u] = true;
+            for (int v = 0; v < graph.length; v++)
+                if (!visited[v] && graph[u][v] != 0 && dist[u] != Integer.MAX_VALUE && dist[u] + graph[u][v] < dist[v])
+                    dist[v] = dist[u] + graph[u][v];
+
+        }
+        return dist;
     }
 }
