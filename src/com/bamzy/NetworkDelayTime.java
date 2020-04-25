@@ -35,4 +35,7 @@ public class NetworkDelayTime {
             table[times[i][0]][times[i][1]] = times[i][2];
         }
     }
+    void dijkstra(int graph[][], int src)
+    {
+    }
 }
