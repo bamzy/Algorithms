@@ -32,44 +32,46 @@ public class NetworkDelayTime {
     public int networkDelayTime(int[][] times, int N, int K) {
         int[][] table = new int[N][N];
         for (int i = 0; i< times.length; i++){
-            table[times[i][0]][times[i][1]] = times[i][2];
+            table[times[i][0]-1][times[i][1]-1] = times[i][2];
         }
-        int[] res = dijkstra(table, K);
+        int[] res = dijkstra(table, K-1);
         int max = Integer.MIN_VALUE;
         for (int re : res) {
             if (re > max)
                 max = re;
         }
-        return max;
+        if (max == Integer.MAX_VALUE)
+            return -1;
+        else return max;
     }
-    int minDistance(int dist[], Boolean sptSet[])
+    int minDistance(int distances[], Boolean visited[])
     {
         // Initialize min value
         int min = Integer.MAX_VALUE, min_index = -1;
-        for (int v = 0; v < dist.length; v++)
-            if (sptSet[v] == false && dist[v] <= min) {
-                min = dist[v];
+        for (int v = 0; v < distances.length; v++)
+            if (!visited[v] && distances[v] <= min) {
+                min = distances[v];
                 min_index = v;
             }
         return min_index;
     }
     int[] dijkstra(int graph[][], int src) {
-        int dist[] = new int[graph.length];
+        int distances[] = new int[graph.length];
         Boolean visited[] = new Boolean[graph.length];
         for (int i = 0; i < graph.length; i++) {
-            dist[i] = Integer.MAX_VALUE;
+            distances[i] = Integer.MAX_VALUE;
             visited[i] = false;
         }
-        dist[src] = 0;
+        distances[src] = 0;
 
         for (int count = 0; count < graph.length - 1; count++) {
-            int u = minDistance(dist, visited);
+            int u = minDistance(distances, visited);
             visited[u] = true;
             for (int v = 0; v < graph.length; v++)
-                if (!visited[v] && graph[u][v] != 0 && dist[u] != Integer.MAX_VALUE && dist[u] + graph[u][v] < dist[v])
-                    dist[v] = dist[u] + graph[u][v];
+                if (!visited[v] && graph[u][v] != 0 && distances[u] != Integer.MAX_VALUE && distances[u] + graph[u][v] < distances[v])
+                    distances[v] = distances[u] + graph[u][v];
 
         }
-        return dist;
+        return distances;
     }
 }
