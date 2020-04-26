@@ -1,4 +1,9 @@
 package com.bamzy;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /*
 There are N network nodes, labelled 1 to N.
 
@@ -29,49 +34,53 @@ The length of times will be in the range [1, 6000].
 All edges times[i] = (u, v, w) will have 1 <= u, v <= N and 0 <= w <= 100.
 */
 public class NetworkDelayTime {
+    int ans = 0;
+
     public int networkDelayTime(int[][] times, int N, int K) {
-        int[][] table = new int[N][N];
-        for (int i = 0; i< times.length; i++){
-            table[times[i][0]-1][times[i][1]-1] = times[i][2];
+        ArrayList[] adj = new ArrayList[N];      // (node, weight)
+        for(int i = 0; i < N; i++){
+            adj[i] = new ArrayList<>();
         }
-        int[] res = dijkstra(table, K-1);
-        int max = Integer.MIN_VALUE;
-        for (int re : res) {
-            if (re > max)
-                max = re;
+
+        for(int t[]: times){
+            adj[t[0] - 1].add(new int[]{t[1] - 1, t[2]});
         }
-        if (max == Integer.MAX_VALUE)
-            return -1;
-        else return max;
-    }
-    int minDistance(int distances[], Boolean visited[])
-    {
-        // Initialize min value
-        int min = Integer.MAX_VALUE, min_index = -1;
-        for (int v = 0; v < distances.length; v++)
-            if (!visited[v] && distances[v] <= min) {
-                min = distances[v];
-                min_index = v;
+
+        boolean visited[] = new boolean[N];
+        dijkstra(K-1, adj, visited);
+
+        for(boolean v: visited){
+            if(!v){
+                return -1;
             }
-        return min_index;
-    }
-    int[] dijkstra(int graph[][], int src) {
-        int distances[] = new int[graph.length];
-        Boolean visited[] = new Boolean[graph.length];
-        for (int i = 0; i < graph.length; i++) {
-            distances[i] = Integer.MAX_VALUE;
-            visited[i] = false;
         }
-        distances[src] = 0;
 
-        for (int count = 0; count < graph.length - 1; count++) {
-            int u = minDistance(distances, visited);
-            visited[u] = true;
-            for (int v = 0; v < graph.length; v++)
-                if (!visited[v] && graph[u][v] != 0 && distances[u] != Integer.MAX_VALUE && distances[u] + graph[u][v] < distances[v])
-                    distances[v] = distances[u] + graph[u][v];
-
-        }
-        return distances;
+        return ans;
     }
+
+    public void dijkstra(int source, ArrayList<int[]> adj[], boolean visited[]){
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<>(){
+            public int compare(int a[], int b[]){
+                return a[1] - b[1];
+            }
+        });
+
+        pq.add(new int[]{source, 0});
+        while(!pq.isEmpty()){
+            int node[] = pq.poll();
+
+            // skip duplicate nodes
+            if(visited[node[0]]){
+                continue;
+            }
+
+            visited[node[0]] = true;
+            ans = node[1];
+
+            for(int neighbor[]: adj[node[0]]){
+                pq.add(new int[]{neighbor[0], neighbor[1] + node[1]});
+            }
+        }
+    }
+
 }
