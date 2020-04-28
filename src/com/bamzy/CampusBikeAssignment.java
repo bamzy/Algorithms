@@ -1,4 +1,7 @@
 package com.bamzy;
+
+import java.util.*;
+
 /*On a campus represented as a 2D grid, there are
 N workers and M bikes, with N <= M.
 Each worker and bike is a 2D coordinate on this grid.
@@ -42,4 +45,50 @@ Note:
     All worker and bike locations are distinct.
     1 <= workers.length <= bikes.length <= 1000*/
 public class CampusBikeAssignment {
+    public class Item {
+        int workerIndex;
+        int bikeIndex;
+        int manhattanDistance;
+
+        public Item(int workerIndex, int bikeIndex, int manhattanDistance) {
+            this.workerIndex = workerIndex;
+            this.manhattanDistance = manhattanDistance;
+            this.bikeIndex = bikeIndex;
+        }
+    }
+    class ItemComparator implements Comparator<Item>{
+
+        @Override
+        public int compare(Item o1, Item o2) {
+            if (o1.manhattanDistance == o2.manhattanDistance)
+                if (o1.workerIndex == o2.workerIndex)
+                    return o1.bikeIndex - o2.bikeIndex;
+                else
+                    return o1.workerIndex - o2.workerIndex;
+            else
+                return o1.manhattanDistance - o2.manhattanDistance;
+        }
+    }
+    int[] matchWorkersToBikes(int[][] workers, int[][] bikes){
+        Map<Integer, PriorityQueue<Item>> map = new TreeMap<>();
+        for (int j = 0; j < workers.length; j++) {
+            for (int i = 0; i < bikes.length; i++) {
+                int manDist = Math.abs(bikes[i][0]-workers[j][0])+Math.abs(bikes[i][1]-workers[j][1]);
+                if (!map.containsKey(manDist)) {
+                    map.put(manDist, new PriorityQueue<>(new ItemComparator()));
+                }
+                map.get(manDist).add(new Item(j,i,manDist));
+
+            }
+
+
+        }
+        ArrayList<Item> res = new ArrayList<>();
+        for (Map.Entry<Integer, PriorityQueue<Item>> entry : map.entrySet()) {
+            for (int i =0; i < map.get(entry.getKey()).size(); i++)
+                res.add(map.get(entry.getKey()).poll());
+        }
+
+        return null;
+    }
 }
