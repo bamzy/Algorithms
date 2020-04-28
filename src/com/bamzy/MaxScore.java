@@ -2,21 +2,22 @@ package com.bamzy;
 
 public class MaxScore {
     public int maxScore(String s) {
-        int index = 0, res = 0;
-        if (s.charAt(0) == '1')
-            index = 1;
-        else {
-            while (index < s.length() && s.charAt(index) == '0')
-                index++;
-        }
-        for (int i = 0 ; i < index; i++)
-            if (s.charAt(i) == '0')
-                res++;
-        for (int i = index ; i < s.length(); i++)
+        int oneCounter = 0;
+        int max = 0;
+        for (int i = 0; i< s.length(); i++){
             if (s.charAt(i) == '1')
-                res++;
-        if (index == s.length())
-            return s.length() - 1;
-        return res ;
+                oneCounter++;
+        }
+        int leftPoints = 0, rightPoints = oneCounter;
+        for (int i = 0; i< s.length()-1; i++){
+            if (s.charAt(i) == '1'){
+                rightPoints--;
+            }
+            if (s.charAt(i) == '0'){
+                leftPoints++;
+            }
+            max = Math.max(leftPoints+rightPoints, max);
+        }
+        return max;
     }
 }
