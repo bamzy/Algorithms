@@ -80,15 +80,38 @@ public class CampusBikeAssignment {
                 map.get(manDist).add(new Item(j,i,manDist));
 
             }
-
-
         }
-        ArrayList<Item> res = new ArrayList<>();
+        ArrayList<Item> tempRes = new ArrayList<>();
         for (Map.Entry<Integer, PriorityQueue<Item>> entry : map.entrySet()) {
-            for (int i =0; i < map.get(entry.getKey()).size(); i++)
-                res.add(map.get(entry.getKey()).poll());
+            while ( map.get(entry.getKey()).size()>0)
+                tempRes.add(map.get(entry.getKey()).poll());
+        }
+        Set<Integer> workerList = new HashSet<>();
+        Set<Integer> bikeList = new HashSet<>();
+
+        ArrayList<Item> finalRes = new ArrayList<>();
+        for (Item re : tempRes) {
+            if (!bikeList.contains(re.bikeIndex) && !workerList.contains(re.workerIndex)) {
+                finalRes.add(re);
+                workerList.add(re.workerIndex);
+                bikeList.add(re.bikeIndex);
+            }
+
+        }
+        Collections.sort(finalRes, new SortbyroWorker());
+        int[] arrayRes = new int[finalRes.size()];
+        for (int i = 0 ; i< finalRes.size(); i++) {
+            arrayRes[i] = finalRes.get(i).bikeIndex;
         }
 
-        return null;
+
+        return arrayRes;
+    }
+    class SortbyroWorker implements Comparator<Item>
+    {
+        public int compare(Item a, Item b)
+        {
+            return a.workerIndex - b.workerIndex;
+        }
     }
 }
