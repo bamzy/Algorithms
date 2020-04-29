@@ -56,26 +56,33 @@ public class CampusBikeAssignment {
             this.bikeIndex = bikeIndex;
         }
     }
-    class ItemComparator implements Comparator<Item>{
-
-        @Override
-        public int compare(Item o1, Item o2) {
-            if (o1.manhattanDistance == o2.manhattanDistance)
-                if (o1.workerIndex == o2.workerIndex)
-                    return o1.bikeIndex - o2.bikeIndex;
-                else
-                    return o1.workerIndex - o2.workerIndex;
-            else
-                return o1.manhattanDistance - o2.manhattanDistance;
+    class SortbyroWorker implements Comparator<Item>
+    {
+        public int compare(Item a, Item b)
+        {
+            return a.workerIndex - b.workerIndex;
         }
     }
+//    class ItemComparator implements Comparator<Item>{
+//
+//        @Override
+//        public int compare(Item o1, Item o2) {
+//            if (o1.manhattanDistance == o2.manhattanDistance)
+//                if (o1.workerIndex == o2.workerIndex)
+//                    return o1.bikeIndex - o2.bikeIndex;
+//                else
+//                    return o1.workerIndex - o2.workerIndex;
+//            else
+//                return o1.manhattanDistance - o2.manhattanDistance;
+//        }
+//    }
     int[] matchWorkersToBikes(int[][] workers, int[][] bikes){
         Map<Integer, PriorityQueue<Item>> map = new TreeMap<>();
         for (int j = 0; j < workers.length; j++) {
             for (int i = 0; i < bikes.length; i++) {
                 int manDist = Math.abs(bikes[i][0]-workers[j][0])+Math.abs(bikes[i][1]-workers[j][1]);
                 if (!map.containsKey(manDist)) {
-                    map.put(manDist, new PriorityQueue<>(new ItemComparator()));
+                    map.put(manDist, new PriorityQueue<>());
                 }
                 map.get(manDist).add(new Item(j,i,manDist));
 
@@ -98,7 +105,7 @@ public class CampusBikeAssignment {
             }
 
         }
-        Collections.sort(finalRes, new SortbyroWorker());
+        finalRes.sort(new SortbyroWorker());
         int[] arrayRes = new int[finalRes.size()];
         for (int i = 0 ; i< finalRes.size(); i++) {
             arrayRes[i] = finalRes.get(i).bikeIndex;
@@ -106,12 +113,5 @@ public class CampusBikeAssignment {
 
 
         return arrayRes;
-    }
-    class SortbyroWorker implements Comparator<Item>
-    {
-        public int compare(Item a, Item b)
-        {
-            return a.workerIndex - b.workerIndex;
-        }
     }
 }
