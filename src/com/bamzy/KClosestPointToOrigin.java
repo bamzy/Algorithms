@@ -1,42 +1,47 @@
 package com.bamzy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 public class KClosestPointToOrigin {
-    class Item {
-        int index;
-        double distnace;
-
-        public Item(int index, double distnace) {
-            this.index = index;
-            this.distnace = distnace;
-        }
-    }
-    class SortbyroDistance implements Comparator<KClosestPointToOrigin.Item>
-    {
-        public int compare(KClosestPointToOrigin.Item a, KClosestPointToOrigin.Item b)
-        {
-            var v = a.distnace - b.distnace;
-            if (v > 0)
-                return 1;
-            else if (v < 0)
-                return -1;
-            else return 0;
-        }
-    }
+    // Quick Select based algo - O(n) on average
+    // The idea is that if we quickselect by some pivot, on average in linear time
+    // we'll reduce the problem to a problem of half the size.
+    // O(n) + O(n/2) + ... O(1) = O(2n)
     public int[][] kClosest(int[][] points, int K) {
-        List<Item> list = new ArrayList<>(points.length);
-        for (int i = 0; i< points.length; i++){
-            list.add(new Item(i,Math.sqrt(points[i][0]*points[i][0]+points[i][1]*points[i][1])));
+        int len =  points.length, l = 0, r = len - 1;
+        while (l <= r) {
+            int mid = helper(points, l, r);
+            if (mid == K) break;
+            if (mid < K) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
         }
-        list.sort(new SortbyroDistance());
-        int[][] res = new int[K][2];
-        for (int i=0; i< K;i++) {
-            res[i][0] = points[list.get(i).index][0];
-            res[i][1] = points[list.get(i).index][1];
+        return Arrays.copyOfRange(points, 0, K);
+    }
+
+    // The main idea is that we don't have to maintain the order the elements before
+    // and after the pivot
+    private int helper(int[][] A, int l, int r) {
+        int[] pivot = A[l];
+        int dist = dist(pivot);
+        while (l < r) {
+            while (l < r && dist(A[r]) >= dist)
+                r--;
+            A[l] = A[r]; // Move this A[r] to l as it is smaller than pivot
+            while (l < r && dist(A[l]) <= dist)
+                l++;
+            A[r] = A[l]; // Move this A[l] to r as it is larger than pivot
         }
-        return res;
+        A[l] = pivot; // Finally put the pivot at l
+        return l;
+    }
+
+    private int dist(int[] point) {
+        return point[0]*point[0] + point[1]*point[1];
     }
 }
