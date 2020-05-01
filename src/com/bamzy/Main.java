@@ -4,9 +4,13 @@ package com.bamzy;
 public class Main {
 
     public static void main(String[] args) {
+        RandomizedSet randomizedSet = new RandomizedSet();
+        System.out.println(randomizedSet.remove(0));
+        System.out.println(randomizedSet.remove(0));
+        System.out.println(randomizedSet.insert(0));
+        System.out.println(randomizedSet.getRandom());
+        System.out.println(randomizedSet.remove(0));
+        System.out.println(randomizedSet.insert(0));
 
-       KClosestPointToOrigin kClosestPointToOrigin = new KClosestPointToOrigin();
-//       kClosestPointToOrigin.kClosest(new int[][]{{1,3},{-2,2}},1);
-        var ints = kClosestPointToOrigin.kClosest(new int[][]{{4, 3}, {3, -2}, {-2, 3}, {1, 2}, {0, 2}, {2, 2}, {0, 0}, {1, 1}}, 2);
     }
 }

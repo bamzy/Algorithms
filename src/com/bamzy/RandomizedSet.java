@@ -1,31 +1,46 @@
 package com.bamzy;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 class RandomizedSet {
-    Set<Integer> set;
+    private HashMap<Integer,Integer> valueIndex;
+    private ArrayList<Integer> values;
     /** Initialize your data structure here. */
     public RandomizedSet() {
-        set = new HashSet<>();
+        valueIndex = new HashMap<>();
+        values = new ArrayList<>();
     }
 
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     public boolean insert(int val) {
-        return set.add(val);
+        if (valueIndex.containsKey(val))
+            return false;
+        else {
+            valueIndex.put(val, values.size());
+            values.add(val);
+            return true;
+        }
+
     }
 
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
-        return set.remove(val);
+        if (!valueIndex.containsKey(val))
+            return false;
+        else {
+            int index = valueIndex.get(val);
+            int temp = values.get(values.size()-1);
+            values.set(index,temp);
+            values.remove(values.size()-1);
+            valueIndex.put(temp, index);
+            valueIndex.remove(val);
+            return true;
+        }
     }
 
     /** Get a random element from the set. */
     public int getRandom() {
-        List<Integer> aList = new ArrayList<Integer>(set);
-        return aList.get((int)(Math.random()*aList.size()));
+        return values.get((int)(Math.random()*values.size()));
     }
 }
 
