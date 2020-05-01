@@ -1,105 +1,84 @@
 package com.bamzy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class SerializeDeserializeBST {
     // Encodes a tree to a single string.
 
 
+
+
+    /**
+     * Time Complexity = O(N) where N is number of nodes.
+     */
     public String serialize(TreeNode root) {
-        if (root == null) return "[]";
-        List<Integer> preOrder = preorderTraversal(root);
-        List<Integer> inOrder = inorderTraversal(root);
-        String st = "[";
-        for (int i =0;i<preOrder.size()-1;i++){
-                st = st + preOrder.get(i) + ",";
+        if (root == null) {
+            return "";
         }
-        st= st + preOrder.get(preOrder.size()-1) + "]&[";
-        for (int i =0;i<inOrder.size()-1;i++){
-            st = st + inOrder.get(i) + ",";
+        //We use a queue to store next layer of nodes we need to serialize
+        Queue<TreeNode> queue = new LinkedList();
+        queue.offer(root);
+        StringBuilder s = new StringBuilder();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = queue.poll();
+                if (cur != null) {
+                    s.append(cur.val + ",");
+                    queue.offer(cur.left);
+                    queue.offer(cur.right);
+                } else {
+                    s.append("null,");
+                }
+            }
         }
-        st= st + inOrder.get(inOrder.size()-1) + "]";
-        return st;
+
+        return s.toString();
     }
 
 
-
+    /**
+     * Time Complexity = O(N) where N is number of nodes.
+     */
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        if (data.equals("[]")) return null;
-        String[] orders = data.split("&");
-        String[] arrPre = orders[0].substring(1,orders[0].length()-1).split(",");
-        String[] arrIn = orders[1].substring(1,orders[1].length()-1).split(",");
-        return constructTreeFromPreOrderInOrder(arrIn,arrPre);
-    }
-
-    public TreeNode constructTreeFromPreOrderInOrder(String[] inOrder, String[] preOrder){
-        int len = preOrder.length;
-        TreeNode root = buildTree(inOrder, preOrder, 0, len - 1);
-        return  root;
-    }
-    static int preIndex = 0;
-    TreeNode buildTree(String[] inOrder, String[] preOrder, int inStart, int inEnd)
-    {
-        if (inStart > inEnd)
+        if (data.length() == 0) {
             return null;
-
-        /* Pick current node from Preorder traversal using preIndex
-           and increment preIndex */
-        TreeNode tNode = null;
-        if (preIndex < preOrder.length)
-            tNode = new TreeNode(Integer.parseInt(preOrder[preIndex++]));
-
-        /* If this node has no children then return */
-        if (inStart == inEnd)
-            return tNode;
-
-        /* Else find the index of this node in Inorder traversal */
-        int inIndex = search(inOrder, inStart, inEnd, tNode.val);
-
-        /* Using index in Inorder traversal, construct left and
-           right subtress */
-        tNode.left = buildTree(inOrder, preOrder, inStart, inIndex - 1);
-        tNode.right = buildTree(inOrder, preOrder, inIndex + 1, inEnd);
-
-        return tNode;
-    }
-    /* Function to find index of value in arr[start...end]
-   The function assumes that value is present in in[] */
-    int search(String[] arr, int start, int end, int value)
-    {
-        int i;
-        for (i = start; i <= end; i++) {
-            if (Integer.parseInt(arr[i]) == value)
-                return i;
         }
-        return i;
-    }
-    public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        preOrder(root,res);
-        return res;
-    }
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        inOrder(root,res);
-        return res;
-    }
-    private void preOrder(TreeNode root, List<Integer> res) {
-        if (root == null)
-            return;
-        res.add(root.val);
-        preOrder(root.left,res);
-        preOrder(root.right,res);
-    }
-    private void inOrder(TreeNode root, List<Integer> res) {
-        if (root == null)
-            return;
-        inOrder(root.left,res);
-        res.add(root.val);
-        inOrder(root.right,res);
+        String[] s = data.split(",");
+        Queue<String> queue = new LinkedList();
+
+        //Since the binary Tree is serizial by BFS, we can store the nodes into a Queue, it will sequence by layer
+        queue.addAll(Arrays.asList(s));
+        //Init a head
+        TreeNode head = new TreeNode(Integer.parseInt(queue.poll()));
+
+        //Offer head to a queue, we will build tree from top to bottom
+        Queue<TreeNode> nodes = new LinkedList();
+        nodes.offer(head);
+
+        //Look into queue, if there are nodes, we need to continue build the tree
+        while (!queue.isEmpty()) {
+
+            //In each layer, we subLeftTree and RightTree for each node, and if node are null, we don't store it into queue
+            int size = nodes.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = nodes.poll();
+                //Build left
+                String left = queue.poll();
+                if (!left.equals("null")) {
+                    node.left = new TreeNode(Integer.parseInt(left));
+                    nodes.offer(node.left);
+                }
+                //Build right
+                String right = queue.poll();
+                if (!right.equals("null")) {
+                    node.right = new TreeNode(Integer.parseInt(right));
+                    nodes.offer(node.right);
+                }
+            }
+        }
+        return head;
     }
 
 
