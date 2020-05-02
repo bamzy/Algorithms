@@ -4,15 +4,16 @@ import java.math.BigInteger;
 
 public class FactorialTrailingZeroes {
     public int trailingZeroes(int n) {
-        int fiveCounter = 0,temp;
-        for (int i=1;i<=n;i++) {
-            temp = i;
-            while (temp%5==0 ) {
-                fiveCounter++;
-                temp = temp / 5;
-            }
+
+        long x=5;
+        long fiveCount=0;
+        while(x<=n)
+        {
+            long q=n/x;
+            fiveCount=fiveCount+q;
+            x=x*5;
         }
-        return fiveCounter;
+        return (int)fiveCount;
 
     }
 
