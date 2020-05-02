@@ -4,17 +4,15 @@ import java.math.BigInteger;
 
 public class FactorialTrailingZeroes {
     public int trailingZeroes(int n) {
-        BigInteger res = BigInteger.valueOf(1);
+        int fiveCounter = 0,temp;
         for (int i=1;i<=n;i++) {
-            res = res.multiply(BigInteger.valueOf(i));
-
+            temp = i;
+            while (temp%5==0 ) {
+                fiveCounter++;
+                temp = temp / 5;
+            }
         }
-        int counter = 0;
-        while (res.mod(BigInteger.valueOf(10)) == BigInteger.valueOf(0)){
-            res = res.divide(BigInteger.valueOf(10)) ;
-            counter++;
-        }
-        return counter;
+        return fiveCounter;
 
     }
 
