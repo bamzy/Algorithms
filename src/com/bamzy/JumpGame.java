@@ -28,20 +28,19 @@ Constraints:
 0 <= nums[i][j] <= 10^5
 * */
 public class JumpGame {
-    private boolean res = false;
     public boolean canJump(int[] nums) {
-        
-        help(nums, 0);
-        return res;
-    }
-
-    private void help(int[] nums, int index) {
-        if (nums[index] >= nums.length - index -1 || res){
-            res = true;
-            return;
+        boolean[] access = new boolean[nums.length];
+        access[access.length-1] = true;
+        for (int i = nums.length-2; i>= 0; i--){
+            for (int j = 1; j<= nums[i]; j++) {
+                if (j+i< access.length && access[j+i] ){
+                    access[i] = true;
+                    break;
+                }
+            }
         }
-        for (int i = 1 ; i<= nums[index] ; i++)
-            help(nums, index+i);
-
+        return access[0];
     }
+
+
 }
