@@ -1,4 +1,8 @@
 package com.bamzy;
+
+import java.util.Arrays;
+import java.util.Collections;
+
 /*
 You are given coins of different denominations and a
 total amount of money amount. Write a function to compute
@@ -20,9 +24,21 @@ You may assume that you have an infinite number of each kind of coin.
 public class CoinChange {
     int minCoins = Integer.MAX_VALUE;
     public int coinChange(int[] coins, int amount) {
+        Arrays.sort(coins);
+        reverse(coins);
         rec(coins,amount,0);
         return (minCoins == Integer.MAX_VALUE) ? -1 : minCoins;
     }
+    public static void reverse(int[] input) {
+        int last = input.length - 1;
+        int middle = input.length / 2;
+        for (int i = 0; i <= middle; i++) {
+            int temp = input[i]; input[i] = input[last - i];
+            input[last - i] = temp;
+        }
+    }
+
+
 
     private void rec(int[] coins, int amount, int coinNum) {
         if (amount == 0)
