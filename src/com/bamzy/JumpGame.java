@@ -30,13 +30,12 @@ Constraints:
 public class JumpGame {
     public boolean canJump(int[] nums) {
         boolean[] access = new boolean[nums.length];
+        int lastTrueIndex = nums.length-1;
         access[access.length-1] = true;
         for (int i = nums.length-2; i>= 0; i--){
-            for (int j = 1; j<= nums[i]; j++) {
-                if (j+i< access.length && access[j+i] ){
+            if (i+nums[i] >= lastTrueIndex){
+                    lastTrueIndex = i;
                     access[i] = true;
-                    break;
-                }
             }
         }
         return access[0];
