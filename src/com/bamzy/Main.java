@@ -4,8 +4,9 @@ package com.bamzy;
 public class Main {
 
     public static void main(String[] args) {
-        JumpGame jumpGame = new JumpGame();
-        System.out.println(jumpGame.canJump(new int[]{3,2,1,0,4}));
-        System.out.println(jumpGame.canJump(new int[]{2,3,1,1,4}));
+        RobotUniquePaths rup = new RobotUniquePaths();
+        System.out.println(rup.uniquePaths(3,2));
+        System.out.println(rup.uniquePaths(7,3));
+        System.out.println(rup.uniquePaths(7,1));
     }
 }
