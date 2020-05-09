@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Subset {
     public List<List<Integer>> subsets(int[] nums) {
+
         if (nums.length == 0)
             return null;
         List<List<Integer>> res = new ArrayList<>();
@@ -19,7 +20,7 @@ public class Subset {
             }
             res.add(temp);
         }
-        for (int i=start ; i<= nums.length; i++){
+        for (int i=start ; i< nums.length; i++){
             swap(i,start,nums);
             rec(start+1,nums,res);
             swap(start,i,nums);
