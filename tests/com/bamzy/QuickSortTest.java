@@ -30,13 +30,17 @@ class QuickSortTest {
         int[] res = quickSort.sort(input);
         assertArrayEquals(new int[]{},res);
     }
-    @Test
-    void quickSortException() throws Exception {
-        assertThrows(IllegalArgumentException.class, () -> quickSort.getException());
-    }
-    @Test
-    void unfinishedTest() {
-        quickSort.unfinished(true);
+    @Nested
+    class UselessTests {
+        @Test
+        void quickSortException() throws Exception {
+            assertThrows(IllegalArgumentException.class, () -> quickSort.getException());
+        }
+
+        @Test
+        void unfinishedTest() {
+            quickSort.unfinished(true);
+        }
     }
 
     @Test
@@ -51,9 +55,9 @@ class QuickSortTest {
     void afterAllDone() {
         assumeTrue(true);
         assertAll(
-                () -> assertEquals(1,quickSort.sort(new int[]{1})),
-                () -> assertEquals(1,quickSort.sort(new int[]{1,2})),
-                () -> assertEquals(1,quickSort.sort(new int[]{1,3}))
+                () -> assertArrayEquals(new int[]{0},quickSort.sort(new int[]{0})),
+                () -> assertArrayEquals(new int[]{1,2},quickSort.sort(new int[]{2,1})),
+                () -> assertArrayEquals(new int[]{1,3},quickSort.sort(new int[]{1,3}))
         );
         System.out.println("We're all done");
     }
