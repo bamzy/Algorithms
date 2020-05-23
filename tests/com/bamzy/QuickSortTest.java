@@ -16,7 +16,7 @@ class QuickSortTest {
         quickSort = new QuickSort();
     }
 
-    @Test
+    @RepeatedTest(5)
     void quickSortArrayBasic() {
          quickSort.save = true;
         int[] input = new int[]{5, 4, 3, 2, 1};
@@ -31,9 +31,11 @@ class QuickSortTest {
         assertArrayEquals(new int[]{},res);
     }
     @Nested
+    @Tag("Critical")
     class UselessTests {
         @Test
-        void quickSortException() throws Exception {
+
+        void quickSortException() {
             assertThrows(IllegalArgumentException.class, () -> quickSort.getException());
         }
 
@@ -44,6 +46,7 @@ class QuickSortTest {
     }
 
     @Test
+    @Tag("Basics")
     void deltaOfDoubleValues() {
         double a = 2.07;
         double b = 2.08;
@@ -51,7 +54,7 @@ class QuickSortTest {
     }
     @AfterAll
     @Test
-    @Tag ("aaa")
+    @Tag ("Critical")
     void afterAllDone() {
         assumeTrue(true);
         assertAll(
