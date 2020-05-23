@@ -5,6 +5,12 @@ public class QuickSort {
     public void getException() throws Exception {
         throw new IllegalArgumentException("my exception");
     }
+    public void unfinished(boolean flag){
+        if (flag)
+            return;
+        int a = 2  *2;
+        a = 5*8 ;
+    }
     public int[] sort(int[] input){
         sort(input,0, input.length-1);
         return input;
