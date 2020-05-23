@@ -1,16 +1,14 @@
 package com.bamzy;
 
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class QuickSortTest {
     private  QuickSort quickSort;
-
-    @BeforeEach
+    @BeforeAll
     public  void doSomeSetup(){
         quickSort = new QuickSort();
     }
@@ -29,10 +27,9 @@ class QuickSortTest {
         int[] res = quickSort.sort(input);
         assertArrayEquals(new int[]{},res);
     }
-    @Disabled("ignore this for now")
     @Test
     void quickSortException() throws Exception {
-        quickSort.getException();
+        assertThrows(IllegalArgumentException.class, () -> quickSort.getException());
     }
     @Test
     void unfinishedTest() {
@@ -44,5 +41,10 @@ class QuickSortTest {
         double a = 2.07;
         double b = 2.08;
         assertEquals(a,b,0.1);
+    }
+    @AfterAll
+    @Test
+    void afterAllDone() {
+        System.out.println("We're all done");
     }
 }
