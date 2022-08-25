@@ -1,18 +1,13 @@
 package com.bamzy;
 
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        QuickSortRec qsrec = new QuickSortRec();
-        int[] input = {1};
-        System.out.println("raw:"+Arrays.toString(input));
-        qsrec.solveQuickSortSwap(input,0,input.length-1);
-        System.out.println("Final Result:"+Arrays.toString(input));
+        MergeTwoSortedArrays mrg = new MergeTwoSortedArrays();
+        long[] res = mrg.mergetwosortedarrays(new long[]{7},new long[]{1,2,4,6,8,9});
+        System.out.println(Arrays.toString(res));
     }
 }
