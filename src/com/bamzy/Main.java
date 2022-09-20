@@ -1,7 +1,7 @@
 package com.bamzy;
 
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
 
@@ -21,9 +21,35 @@ public class Main {
         BinarySearchLC704 bs = new BinarySearchLC704(new long[]{-1,0,3,5,9,12});
         System.out.println(bs.findIndexBinarySearch(2));
 
+        FindAllPositiveIntegerSolution fapis = new FindAllPositiveIntegerSolution();
+        HashMap<Long, ArrayList<FindAllPositiveIntegerSolution.Couple>> tmp = fapis.solve(1,100);
 
-        Circle sh = new Circle(3);
-        System.out.println(sh.local);
+        SortedSet<Long> keys = new TreeSet<Long>(tmp.keySet());
+        for (Long name : keys) {
+            String key = name.toString();
+            ArrayList<FindAllPositiveIntegerSolution.Couple> couples = tmp.get(name);
+            String value = "";
+            for (FindAllPositiveIntegerSolution.Couple couple : couples) {
+                value = value+ "("+ couple.getA()+ ","+couple.getB()+ ")-";
+            }
 
+//            System.out.println(key + " " + value);
+            // do something
+        }
+
+       StringPermutationRecursive sbr = new StringPermutationRecursive();
+        ArrayList<String> result = sbr.solve("abcefg");
+        System.out.println(result.size()+result.toString());
+
+        StringBuilder stb = new StringBuilder();
+        System.out.println("capacity:"+stb.capacity());
+        stb.append("abcdefghijklmnopqr");
+        System.out.println("capacity:"+stb.capacity());
+        stb.append("123");
+        stb.ensureCapacity(77);
+        System.out.println("capacity:"+stb.capacity());
+        stb.trimToSize();
+        System.out.println("capacity:"+stb.capacity());
+        System.out.println("value:"+stb.toString());
     }
 }
