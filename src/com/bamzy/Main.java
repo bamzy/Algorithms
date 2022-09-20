@@ -20,5 +20,10 @@ public class Main {
 
         BinarySearchLC704 bs = new BinarySearchLC704(new long[]{-1,0,3,5,9,12});
         System.out.println(bs.findIndexBinarySearch(2));
+
+
+        Circle sh = new Circle(3);
+        System.out.println(sh.local);
+
     }
 }
