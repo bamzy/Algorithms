@@ -58,7 +58,7 @@ public class Main {
         NNode one = new NNode(50);
         NNode two = new NNode(200);
         NNode three = new NNode(25);
-        NNode four = new NNode(75);
+        NNode four = new NNode(45);
         NNode five = new NNode(375);
         root.left = one;
         root.right = two;
@@ -67,5 +67,8 @@ public class Main {
 
         PrintLevelTree plt = new PrintLevelTree();
         plt.solve(root);
+
+        CheckIfBinaryTreeIsSearchBinaryTree cbtissbt = new CheckIfBinaryTreeIsSearchBinaryTree();
+        System.out.println(cbtissbt.check(root));
     }
 }
