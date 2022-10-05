@@ -69,6 +69,15 @@ public class Main {
         plt.solve(root);
 
         CheckIfBinaryTreeIsSearchBinaryTree cbtissbt = new CheckIfBinaryTreeIsSearchBinaryTree();
-        System.out.println(cbtissbt.check(root));
+
+
+        StringSegmentations segment = new StringSegmentations();
+        HashSet<String> dict = new HashSet<>();
+        dict.add("apple");
+        dict.add("peer");
+        dict.add("pear");
+        dict.add("pie");
+        System.out.println(segment.betterSegment(dict,"applepiepeaar"));
+
     }
 }
