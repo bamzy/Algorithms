@@ -26,7 +26,7 @@ public class Main {
         FindAllPositiveIntegerSolution fapis = new FindAllPositiveIntegerSolution();
         HashMap<Long, ArrayList<FindAllPositiveIntegerSolution.Couple>> tmp = fapis.solve(1,100);
 
-        SortedSet<Long> keys = new TreeSet<Long>(tmp.keySet());
+        SortedSet<Long> keys = new TreeSet<>(tmp.keySet());
         for (Long name : keys) {
             String key = name.toString();
             ArrayList<FindAllPositiveIntegerSolution.Couple> couples = tmp.get(name);
@@ -53,6 +53,34 @@ public class Main {
         stb.trimToSize();
         System.out.println("capacity:"+stb.capacity());
         System.out.println("value:"+stb.toString());
+
+
+
+        NNode root = new NNode(100);
+        NNode one = new NNode(50);
+        NNode two = new NNode(200);
+        NNode three = new NNode(25);
+        NNode four = new NNode(45);
+        NNode five = new NNode(375);
+        root.left = one;
+        root.right = two;
+        one.left = three;one.right = four;
+        two.right = five;
+
+        PrintLevelTree plt = new PrintLevelTree();
+        plt.solve(root);
+
+        CheckIfBinaryTreeIsSearchBinaryTree cbtissbt = new CheckIfBinaryTreeIsSearchBinaryTree();
+
+
+        StringSegmentations segment = new StringSegmentations();
+        HashSet<String> dict = new HashSet<>();
+        dict.add("apple");
+        dict.add("peer");
+        dict.add("pear");
+        dict.add("pie");
+        System.out.println(segment.betterSegment(dict,"applepiepeaar"));
+
 
         HashMap<String, Integer> hm = new HashMap<String,Integer>();
         hm.put("a",1);
