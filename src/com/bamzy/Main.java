@@ -3,6 +3,8 @@ package com.bamzy;
 
 import java.util.*;
 
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -51,5 +53,55 @@ public class Main {
         stb.trimToSize();
         System.out.println("capacity:"+stb.capacity());
         System.out.println("value:"+stb.toString());
+
+        HashMap<String, Integer> hm = new HashMap<String,Integer>();
+        hm.put("a",1);
+        hm.put("A",2);
+        System.out.println(hm.toString());
+        Character achar = 'a';
+        int charint = Character.getNumericValue(achar);
+        System.out.println((int)achar);
+        int charint1 = Character.getNumericValue('B');
+        System.out.println(charint1);
+
+
+        LC658FindKClosestElement lc658 = new LC658FindKClosestElement();
+        List<Integer> res658 = lc658.findClosestElements(new int[]{1,2,3,4,5},4,-1);
+        System.out.println(res658.toString());
+        res658.forEach((n) -> {System.out.println(n);});
+
+        LTAssesment1Q1 ltAssesment1Q1 = new LTAssesment1Q1();
+        System.out.println(ltAssesment1Q1.reverseStr("a",2));
+
+
+        List<List<Integer>> connections = new ArrayList<>();
+        ArrayList<Integer> element = new ArrayList<Integer>();
+        element.add(0);
+        element.add(1);
+        connections.add(element);
+        ArrayList<Integer> element1 = new ArrayList<Integer>();
+        element1.add(1);
+        element1.add(2);
+        connections.add(element1);
+        ArrayList<Integer> element2 = new ArrayList<Integer>();
+        element2.add(0);
+        element2.add(3);
+        connections.add(element2);
+        ArrayList<Integer> element3 = new ArrayList<Integer>();
+        element3.add(2);
+        element3.add(5);
+        connections.add( element3);
+        ArrayList<Integer> element4 = new ArrayList<Integer>();
+        element4.add(5);
+        element4.add(4);
+        connections.add( element4);
+
+        LTGoogleAssesment2 ltg3 = new LTGoogleAssesment2();
+
+        int[] input5 = new int[]{6,7,3,2,1,-3,4,5,6,-7};
+
+        System.out.println((ltg3.findKthSmallestElement(input5,2 )));
+
+
     }
 }
