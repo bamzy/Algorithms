@@ -11,6 +11,6 @@ public class Main {
 
         BinaryTreePreorderTraversal.runTest();
 
-
+        ZigzagStringConversion.runTest();
     }
 }
