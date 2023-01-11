@@ -16,5 +16,7 @@ public class Main {
         AddBinary.runTest();
 
         TextJustification.runTest();
+
+        SQRTx.runTest();
     }
 }
