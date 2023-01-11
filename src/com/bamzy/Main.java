@@ -14,5 +14,7 @@ public class Main {
         ZigzagStringConversion.runTest();
 
         AddBinary.runTest();
+
+        TextJustification.runTest();
     }
 }
