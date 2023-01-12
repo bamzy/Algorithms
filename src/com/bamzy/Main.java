@@ -20,6 +20,7 @@ public class Main {
         SQRTx.runTest();
 
         ReArrangeSpaceBetweenWords.runTest();
+        MaskingPersonalInfo.runTest();
     }
 
 }
