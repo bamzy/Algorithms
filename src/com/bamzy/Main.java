@@ -18,5 +18,8 @@ public class Main {
         TextJustification.runTest();
 
         SQRTx.runTest();
+
+        ReArrangeSpaceBetweenWords.runTest();
     }
+
 }
