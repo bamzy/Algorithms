@@ -1,103 +1,36 @@
 package com.bamzy;
 
 
+import com.bamzy.google.AdjustLicensePlates;
+import com.bamzy.google.BuildDirectoryTreeFromString;
+
 import java.util.*;
+
+
 
 public class Main {
 
     public static void main(String[] args) {
-        MergeTwoSortedArrays mrg = new MergeTwoSortedArrays();
-        long[] res = mrg.mergetwosortedarrays(new long[]{7},new long[]{1,2,4,6,8,9});
-        System.out.println(Arrays.toString(res));
 
-        MergeSort mrgs = new MergeSort();
-        long[] input = {99,5,4,1,0,9999999,99997};
-        long[] res2 = mrgs.solveMergeSort(input);
-        System.out.println(Arrays.toString(res2));
+        BinaryTreePreorderTraversal.runTest();
 
-        TwoStringPermutation tsp = new TwoStringPermutation();
-        tsp.findStringPermutation("abcdeabc","abc");
+        ZigzagStringConversion.runTest();
 
-        BinarySearchLC704 bs = new BinarySearchLC704(new long[]{-1,0,3,5,9,12});
-        System.out.println(bs.findIndexBinarySearch(2));
+        AddBinary.runTest();
 
-        FindAllPositiveIntegerSolution fapis = new FindAllPositiveIntegerSolution();
-        HashMap<Long, ArrayList<FindAllPositiveIntegerSolution.Couple>> tmp = fapis.solve(1,100);
+        TextJustification.runTest();
 
-        SortedSet<Long> keys = new TreeSet<>(tmp.keySet());
-        for (Long name : keys) {
-            String key = name.toString();
-            ArrayList<FindAllPositiveIntegerSolution.Couple> couples = tmp.get(name);
-            String value = "";
-            for (FindAllPositiveIntegerSolution.Couple couple : couples) {
-                value = value+ "("+ couple.getA()+ ","+couple.getB()+ ")-";
-            }
+        SQRTx.runTest();
 
-//            System.out.println(key + " " + value);
-            // do something
-        }
+        ReArrangeSpaceBetweenWords.runTest();
+        MaskingPersonalInfo.runTest();
+        DP_fibbonaci.runTest();
+        DP_tribbonaci.runTest();
+        ReverseInteger.runTest();
 
-       StringPermutationRecursive sbr = new StringPermutationRecursive();
-        ArrayList<String> result = sbr.solve("abcefg");
-        System.out.println(result.size()+result.toString());
+        AdjustLicensePlates.runTest();
 
-        StringBuilder stb = new StringBuilder();
-        System.out.println("capacity:"+stb.capacity());
-        stb.append("abcdefghijklmnopqr");
-        System.out.println("capacity:"+stb.capacity());
-        stb.append("123");
-        stb.ensureCapacity(77);
-        System.out.println("capacity:"+stb.capacity());
-        stb.trimToSize();
-        System.out.println("capacity:"+stb.capacity());
-        System.out.println("value:"+stb.toString());
-
-
-
-        NNode root = new NNode(100);
-        NNode one = new NNode(50);
-        NNode two = new NNode(200);
-        NNode three = new NNode(25);
-        NNode four = new NNode(45);
-        NNode five = new NNode(375);
-        root.left = one;
-        root.right = two;
-        one.left = three;one.right = four;
-        two.right = five;
-
-        PrintLevelTree plt = new PrintLevelTree();
-        plt.solve(root);
-
-        CheckIfBinaryTreeIsSearchBinaryTree cbtissbt = new CheckIfBinaryTreeIsSearchBinaryTree();
-
-
-        StringSegmentations segment = new StringSegmentations();
-        HashSet<String> dict = new HashSet<>();
-        dict.add("apple");
-        dict.add("peer");
-        dict.add("pear");
-        dict.add("pie");
-        System.out.println(segment.betterSegment(dict,"applepiepeaar"));
-
-        ReverseWordsInSentence rvs = new ReverseWordsInSentence();
-        System.out.println(rvs.solve("Hellow Worlds !"));
-
-        BreakAmountToCoinChange bratcc = new BreakAmountToCoinChange();
-        bratcc.solve(new int[]{1,2,5},7);
-
-        ArrayList<String> arrayListObject = new ArrayList<>();
-
-        arrayListObject.add("A");
-        arrayListObject.add("B");
-        arrayListObject.add("C");
-        arrayListObject.add("D");
-
-
-        ArrayList<String> arrayListClone =  (ArrayList<String>) arrayListObject.clone();
-        arrayListClone.add("new");
-        arrayListObject.clear();
-
-        System.out.println(arrayListObject);
-        System.out.println(arrayListClone);
+        BuildDirectoryTreeFromString.runTest();
     }
+
 }
