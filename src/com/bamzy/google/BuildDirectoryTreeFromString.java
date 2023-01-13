@@ -46,9 +46,9 @@ import java.util.ArrayList;
 public class BuildDirectoryTreeFromString {
     int longestFileAddress = 0;
     private class DirectoryNode {
+        String name;
 
         ArrayList<DirectoryNode> children;
-        String name;
         int depth;
         public DirectoryNode(String name, int depth){
             this.children = new ArrayList<>();
@@ -60,7 +60,9 @@ public class BuildDirectoryTreeFromString {
         }
     }
     public int solve(String s){
-
+        this.longestFileAddress = 0;
+        dfs(build(s),0);
+        return this.longestFileAddress;
     }
 
     public DirectoryNode build(String s){
@@ -68,11 +70,18 @@ public class BuildDirectoryTreeFromString {
         DirectoryNode root = new DirectoryNode(names[0],0);
         buildRec(names,1,root);
         return root;
-        dfs(root,0);
+
 
     }
     public void dfs(DirectoryNode root,int length){
-
+        if(root.children.size()==0 && isValidFileName(root.name)){
+            this.longestFileAddress = Math.max(length+root.name.length(),this.longestFileAddress);
+            return;
+        } else {
+            for (int i =0 ; i<root.children.size();i++){
+                dfs(root.children.get(i),length+root.name.length()+1);
+            }
+        }
     }
     /**
      *
@@ -115,7 +124,9 @@ public class BuildDirectoryTreeFromString {
     }
     public static void runTest(){
         BuildDirectoryTreeFromString bdfs = new BuildDirectoryTreeFromString();
-        DirectoryNode root = bdfs.build("dir\n\tdir1\n\t\tchild1\n\t\tchild2\n\t\t\tchild7\n\tdir2\n\t\tchild3\n\t\tchild4\n\t\t\tchild5\n\tdir3");
-        System.out.println(root);
+        System.out.println(bdfs.solve("dir\n\tdir1\n\t\tchild1\n\t\tchild2\n\t\t\tchild7\n\tdir2\n\t\tchild3\n\t\tchild4\n\t\t\tchild5\n\tdir3"));
+        System.out.println(bdfs.solve("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"));
+        System.out.println(bdfs.solve("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"));
+        System.out.println(bdfs.solve("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"));
     }
 }
