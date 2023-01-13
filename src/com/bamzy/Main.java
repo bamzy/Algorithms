@@ -79,5 +79,25 @@ public class Main {
         dict.add("pie");
         System.out.println(segment.betterSegment(dict,"applepiepeaar"));
 
+        ReverseWordsInSentence rvs = new ReverseWordsInSentence();
+        System.out.println(rvs.solve("Hellow Worlds !"));
+
+        BreakAmountToCoinChange bratcc = new BreakAmountToCoinChange();
+        bratcc.solve(new int[]{1,2,5},7);
+
+        ArrayList<String> arrayListObject = new ArrayList<>();
+
+        arrayListObject.add("A");
+        arrayListObject.add("B");
+        arrayListObject.add("C");
+        arrayListObject.add("D");
+
+
+        ArrayList<String> arrayListClone =  (ArrayList<String>) arrayListObject.clone();
+        arrayListClone.add("new");
+        arrayListObject.clear();
+
+        System.out.println(arrayListObject);
+        System.out.println(arrayListClone);
     }
 }
