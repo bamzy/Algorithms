@@ -1,6 +1,8 @@
 package com.bamzy;
 
 
+import com.bamzy.google.AdjustLicensePlates;
+
 import java.util.*;
 
 
@@ -21,6 +23,11 @@ public class Main {
 
         ReArrangeSpaceBetweenWords.runTest();
         MaskingPersonalInfo.runTest();
+        DP_fibbonaci.runTest();
+        DP_tribbonaci.runTest();
+        ReverseInteger.runTest();
+
+        AdjustLicensePlates.runTest();
     }
 
 }
