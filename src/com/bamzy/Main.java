@@ -31,6 +31,8 @@ public class Main {
         AdjustLicensePlates.runTest();
 
         BuildDirectoryTreeFromString.runTest();
+
+        DP_ClimbStairs.runTest();
     }
 
 }
