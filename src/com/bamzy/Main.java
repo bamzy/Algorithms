@@ -2,6 +2,7 @@ package com.bamzy;
 
 
 import com.bamzy.google.AdjustLicensePlates;
+import com.bamzy.google.BuildDirectoryTreeFromString;
 
 import java.util.*;
 
@@ -28,6 +29,8 @@ public class Main {
         ReverseInteger.runTest();
 
         AdjustLicensePlates.runTest();
+
+        BuildDirectoryTreeFromString.runTest();
     }
 
 }

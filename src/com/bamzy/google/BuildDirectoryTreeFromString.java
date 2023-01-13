@@ -41,53 +41,81 @@ package com.bamzy.google;
  * •	All file and directory names have positive length.
  */
 
-import com.bamzy.TreeNode;
-
 import java.util.ArrayList;
 
 public class BuildDirectoryTreeFromString {
-    private class DirectoyNode {
-        ArrayList<DirectoyNode> children;
+    int longestFileAddress = 0;
+    private class DirectoryNode {
+
+        ArrayList<DirectoryNode> children;
         String name;
         int depth;
-        public DirectoyNode(String name,int depth){
+        public DirectoryNode(String name, int depth){
             this.children = new ArrayList<>();
             this.name = name.replace("\t","");
             this.depth = depth;
         }
-        public void add(DirectoyNode child){
+        public void add(DirectoryNode child){
             this.children.add(child);
         }
     }
-    public TreeNode build(String s){
-        String[] names =  s.split("\n");
-        DirectoyNode root;
-        for (int i=0;i<names.length;i++){
-            if (countLevel(names[i]) == 0) root = new DirectoyNode(names[i],0);
-
-        }
+    public int solve(String s){
 
     }
-    private void buildRec(String[] names,int current,DirectoyNode parent){
-        DirectoyNode last = null;
+
+    public DirectoryNode build(String s){
+        String[] names =  s.split("\n");
+        DirectoryNode root = new DirectoryNode(names[0],0);
+        buildRec(names,1,root);
+        return root;
+        dfs(root,0);
+
+    }
+    public void dfs(DirectoryNode root,int length){
+
+    }
+    /**
+     *
+     * dir
+     *      dir1
+     *              child1
+     *              child2
+     *                      child7
+     *      dir2
+     *              child3
+     *              child4
+     *                      child5
+     *      dir3
+     */
+    private void buildRec(String[] names, int current, DirectoryNode parent){
+        DirectoryNode last = null;
+        if(current>= names.length) return;
         for(int i = current;i<names.length;i++){
             int currentDepth = countLevel(names[i]);
             if(currentDepth == parent.depth+1) {
-                last = new DirectoyNode(names[i],parent.depth+1)
+                last = new DirectoryNode(names[i],currentDepth);
                 parent.add(last);
-            }
-            else if(currentDepth == parent.depth) {
-                buildRec(names,i,parent);
-                return;
-            } else return;
+                if(!isValidFileName(names[i])) buildRec(names,i+1,last);
+            } else if( currentDepth<= parent.depth) return;
+
+
         }
+    }
+    private boolean isValidFileName(String name){
+        if(name.contains(".")) return true;
+        return false;
     }
     private int countLevel(String input){
         int count = 0;
         for(int i = 0 ; i< input.length()-1 ; i++){
-            if(input.charAt(i) == '\'' && input.charAt(i+1) == 't') count++;
+            if(input.charAt(i) == '\t' ) count++;
         }
-        return 0;
+        return count;
 
+    }
+    public static void runTest(){
+        BuildDirectoryTreeFromString bdfs = new BuildDirectoryTreeFromString();
+        DirectoryNode root = bdfs.build("dir\n\tdir1\n\t\tchild1\n\t\tchild2\n\t\t\tchild7\n\tdir2\n\t\tchild3\n\t\tchild4\n\t\t\tchild5\n\tdir3");
+        System.out.println(root);
     }
 }
