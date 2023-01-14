@@ -3,6 +3,7 @@ package com.bamzy;
 
 import com.bamzy.google.AdjustLicensePlates;
 import com.bamzy.google.BuildDirectoryTreeFromString;
+import com.bamzy.google.DecideRentByAmenities;
 
 import java.util.*;
 
@@ -33,6 +34,8 @@ public class Main {
         BuildDirectoryTreeFromString.runTest();
 
         DP_ClimbStairs.runTest();
+
+        DecideRentByAmenities.runTest();
     }
 
 }
