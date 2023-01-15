@@ -4,6 +4,7 @@ package com.bamzy;
 import com.bamzy.google.AdjustLicensePlates;
 import com.bamzy.google.BuildDirectoryTreeFromString;
 import com.bamzy.google.DecideRentByAmenities;
+import com.bamzy.google.RandomStore;
 
 import java.util.*;
 
@@ -36,6 +37,8 @@ public class Main {
         DP_ClimbStairs.runTest();
 
         DecideRentByAmenities.runTest();
+
+        RandomStore.runTest();
     }
 
 }
