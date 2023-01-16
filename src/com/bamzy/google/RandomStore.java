@@ -26,6 +26,7 @@ public class RandomStore {
         int lastValue = backup.get(backup.size()-1);
         backup.set(tobeRemovedIndex,lastValue);
         backup.remove(backup.size()-1);
+        set.put(lastValue,tobeRemovedIndex);
         arrayRsize--;
         set.remove(i);
 

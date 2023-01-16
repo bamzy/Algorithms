@@ -1,10 +1,7 @@
 package com.bamzy;
 
 
-import com.bamzy.google.AdjustLicensePlates;
-import com.bamzy.google.BuildDirectoryTreeFromString;
-import com.bamzy.google.DecideRentByAmenities;
-import com.bamzy.google.RandomStore;
+import com.bamzy.google.*;
 
 import java.util.*;
 
@@ -39,6 +36,8 @@ public class Main {
         DecideRentByAmenities.runTest();
 
         RandomStore.runTest();
+
+        ReverseLinkedList.runTest();
     }
 
 }
