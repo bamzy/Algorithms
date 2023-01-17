@@ -38,6 +38,10 @@ public class Main {
         RandomStore.runTest();
 
         ReverseLinkedList.runTest();
+
+        RemoveIslandFromMatrix.runTest();
+
+        Kusaraju.runTest();
     }
 
 }
