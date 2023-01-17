@@ -6,11 +6,11 @@ import java.util.Stack;
 
 public class Kusaraju {
     private Stack<Integer> stack = new Stack<>();
-    public ArrayList<int[]> solve(int[][] routes) {
-        ArrayList<int[]> result = new ArrayList<>();
+    public ArrayList<HashSet<Integer>> solve(int[][] routes) {
+        ArrayList<HashSet<Integer>> result = new ArrayList<>();
         HashSet<Integer> visited = new HashSet<>();
         for( int i =0 ;i < routes.length;i++)
-                if(visited.contains(i) == false)
+                if(!visited.contains(i))
                     dfsAndPush(i,routes,visited);
 
 
@@ -19,17 +19,19 @@ public class Kusaraju {
         while(stack.size()>0){
             int node = stack.pop();
             if(!visited.contains(node) ){
-                dfs(node,revroutes,visited);
-                System.out.println();
+                HashSet<Integer> scc = new HashSet<>();
+                dfs(node,revroutes,visited,scc);
+                result.add(scc);
             }
         }
         return result;
     }
-    public void dfs(int node, int[][] routes, HashSet<Integer> visited){
+    public void dfs(int node, int[][] routes, HashSet<Integer> visited,HashSet<Integer> scc){
         visited.add(node);
-        System.out.print(node+" ,");
+        scc.add(node);
+
         for (int i=0; i  < routes[node].length; i++){
-            if (routes[node][i] == 1 && !visited.contains(i)) dfs(i,routes,visited);
+            if (routes[node][i] == 1 && !visited.contains(i)) dfs(i,routes,visited,scc);
         }
 
 
