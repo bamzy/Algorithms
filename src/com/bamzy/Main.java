@@ -42,6 +42,12 @@ public class Main {
         RemoveIslandFromMatrix.runTest();
 
         Kusaraju.runTest();
+
+        RegularExpression.runTest();
+
+        ValidateSubsequentArrays.runTest();
+
+        GetRiverSizes.runTest();
     }
 
 }
