@@ -1,6 +1,8 @@
 package com.bamzy;
 
 
+import com.bamzy.amazon.LongestUniqueStringSplit;
+import com.bamzy.amazon.OverlappingRectangles;
 import com.bamzy.google.*;
 
 import java.util.*;
@@ -29,6 +31,7 @@ public class Main {
 
         AdjustLicensePlates.runTest();
 
+
         BuildDirectoryTreeFromString.runTest();
 
         DP_ClimbStairs.runTest();
@@ -48,6 +51,10 @@ public class Main {
         ValidateSubsequentArrays.runTest();
 
         GetRiverSizes.runTest();
+
+        OverlappingRectangles.runTest();
+
+        LongestUniqueStringSplit.runTest();
     }
 
 }
