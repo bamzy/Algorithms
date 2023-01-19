@@ -55,6 +55,8 @@ public class Main {
         OverlappingRectangles.runTest();
 
         LongestUniqueStringSplit.runTest();
+
+        PascalTriangle.runTest();
     }
 
 }
