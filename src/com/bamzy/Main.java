@@ -3,6 +3,7 @@ package com.bamzy;
 
 import com.bamzy.amazon.LongestUniqueStringSplit;
 import com.bamzy.amazon.OverlappingRectangles;
+import com.bamzy.crack_coding_interview.OneWay;
 import com.bamzy.crack_coding_interview.URLify;
 import com.bamzy.google.*;
 import org.w3c.dom.ls.LSOutput;
@@ -63,5 +64,7 @@ public class Main {
         JumpGameII.runTest();
 
         URLify.runTest();
+
+        OneWay.runTest();
     }
 }
