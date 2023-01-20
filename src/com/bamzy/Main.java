@@ -4,6 +4,7 @@ package com.bamzy;
 import com.bamzy.amazon.LongestUniqueStringSplit;
 import com.bamzy.amazon.OverlappingRectangles;
 import com.bamzy.google.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.*;
 
@@ -57,6 +58,9 @@ public class Main {
         LongestUniqueStringSplit.runTest();
 
         PascalTriangle.runTest();
-    }
 
+        JumpGameII.runTest();
+
+
+    }
 }
