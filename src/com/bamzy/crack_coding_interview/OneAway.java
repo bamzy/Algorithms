@@ -11,7 +11,7 @@ package com.bamzy.crack_coding_interview;
  * pale, bake -> false
  * Hints:#23, #97, #130
  */
-public class OneWay {
+public class OneAway {
     public boolean isOneAway(String a, String b){
 
         boolean error = false;
@@ -43,12 +43,13 @@ public class OneWay {
     // pale, ple
 
     public static void runTest(){
-        OneWay ow = new OneWay();
+        OneAway ow = new OneAway();
 
         System.out.println(ow.isOneAway("pale","ple"));
         System.out.println(ow.isOneAway("pales","pale"));
         System.out.println(ow.isOneAway("pale","bale"));
         System.out.println(ow.isOneAway("pale","bake"));
+        System.out.println(ow.isOneAway("apple","aple"));
     }
 
 }

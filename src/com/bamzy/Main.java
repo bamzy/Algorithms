@@ -3,13 +3,9 @@ package com.bamzy;
 
 import com.bamzy.amazon.LongestUniqueStringSplit;
 import com.bamzy.amazon.OverlappingRectangles;
-import com.bamzy.crack_coding_interview.OneWay;
+import com.bamzy.crack_coding_interview.OneAway;
 import com.bamzy.crack_coding_interview.URLify;
 import com.bamzy.google.*;
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.*;
-
 
 
 public class Main {
@@ -65,6 +61,6 @@ public class Main {
 
         URLify.runTest();
 
-        OneWay.runTest();
+        OneAway.runTest();
     }
 }
