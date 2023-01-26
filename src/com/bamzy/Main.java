@@ -64,5 +64,11 @@ public class Main {
 
         OneAway.runTest();
         RotateMatrix.runTest();
+
+        SnakesAndLadders.runTest();
+
+        KokoBananaEating.runTest();
+
+        SolveSudoku.runTest();
     }
 }
