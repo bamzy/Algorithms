@@ -10,5 +10,8 @@ public class MyString {
         System.out.println(Integer.toBinaryString(35));    // prints 29
         System.out.println(Integer.toBinaryString(~35));    // prints 29
         System.out.println("abcdef".charAt(1) - 'a');
+
+
+
     }
 }

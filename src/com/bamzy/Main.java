@@ -20,5 +20,11 @@ public class Main {
         LongestSubstringWithKDistinctVals.runTest();
 
         FindAllStringAnagrams.runTest();
+
+        System.out.println("abcdefg".substring(4,7));
+
+        WordBreak.runTest();
+
+        DeepCopyGraph.runTest();
     }
 }
