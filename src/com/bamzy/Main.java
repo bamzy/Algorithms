@@ -26,5 +26,7 @@ public class Main {
         WordBreak.runTest();
 
         DeepCopyGraph.runTest();
+
+        Trie.runTest();
     }
 }
