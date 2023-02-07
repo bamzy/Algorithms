@@ -28,5 +28,7 @@ public class Main {
         DeepCopyGraph.runTest();
 
         Trie.runTest();
+
+        DetectCircularArray.runTest();
     }
 }
