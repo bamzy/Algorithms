@@ -31,8 +31,8 @@ public class Main {
 
         DetectCircularArray.runTest();
 
-        TaskScheduler.runTest();
 
         AlternatingString.runTest();
+        TaskScheduler.runTest();
     }
 }
