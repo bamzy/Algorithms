@@ -28,12 +28,37 @@ public class Trie {
             head  = head.nexts[charIndex];
         }
     }
-
-    boolean search(String input){
-        TriNode head = root;
+    boolean search(String input) {
+        return search(input,this.root);
+    }
+//    ["d"->"a"->["c"->[g,f]
+//               ,"d"->[e,f->h]
+//               ]
+//   input: "da.f."
+//    head : root,  a
+//    i     : 0   , 1 ,
+    boolean search(String input, TriNode head){
+//        TriNode head = root;
+        if(input=="" ){
+            if (head==null) return true;
+            else return false;
+        }
         for(int i = 0 ;i < input.length(); i++){
-            if(head.nexts[input.charAt(i)-'a']==null || head.nexts[input.charAt(i)-'a'].val!=input.charAt(i)) return false;
-            head = head.nexts[input.charAt(i)-'a'];
+            if(input.charAt(i)=='.'){
+                boolean tmpRes = false;
+                for(TriNode next: head.nexts){
+                    if (next!=null) {
+                        String substring = "";
+                        if(i<input.length()-1) substring = input.substring(i + 1);
+                        tmpRes = tmpRes || search(substring,next);
+                        if(tmpRes) head = next;
+                    }
+                }
+                if(!tmpRes) return false;
+            } else {
+                if (head.nexts[input.charAt(i) - 'a'] == null || head.nexts[input.charAt(i) - 'a'].val != input.charAt(i)) return false;
+                head = head.nexts[input.charAt(i) - 'a'];
+            }
         }
         if( head.isLast) return true;
         return false;
@@ -49,12 +74,15 @@ public class Trie {
 
     public static void runTest(){
         Trie trie = new Trie();
-        trie.insert("dada");
-        trie.insert("dab");
-        trie.insert("ease");
-        boolean res = trie.search("dac");
-        res = trie.search("dad");
-        res = trie.startsWidth("dd");
+        trie.insert("dac");
+        trie.insert("dad");
+        trie.insert("dacf");
+        trie.insert("dach");
+        trie.insert("dadh");
+        trie.insert("dadf");
+        trie.insert("dadfg");
+        boolean res = trie.search("da.f.");
+
         System.out.println("helloe");
     }
 }
