@@ -58,6 +58,7 @@ public class TaskScheduler {
         sortedList.sort( valueComparator);
 
         boolean allowed = false;
+
         int index = 0;
         while(sortedList.size()>0){
 

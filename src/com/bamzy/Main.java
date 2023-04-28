@@ -17,22 +17,9 @@ public class Main {
 
 
 
-        LongestSubstringWithKDistinctVals.runTest();
+        
+        PalindromeNumber.runTest();
 
-        FindAllStringAnagrams.runTest();
-
-        System.out.println("abcdefg".substring(4,7));
-
-        WordBreak.runTest();
-
-        DeepCopyGraph.runTest();
-
-        Trie.runTest();
-
-        DetectCircularArray.runTest();
-
-
-        AlternatingString.runTest();
-        TaskScheduler.runTest();
+        UniqueList.runTest();
     }
 }
