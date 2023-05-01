@@ -1,36 +1,25 @@
 package com.bamzy;
 
 
-import com.bamzy.google.AdjustLicensePlates;
-import com.bamzy.google.BuildDirectoryTreeFromString;
-
-import java.util.*;
-
+import com.bamzy.amazon.LongestUniqueStringSplit;
+import com.bamzy.amazon.OverlappingRectangles;
+import com.bamzy.amazon.WeightGainDiet;
+import com.bamzy.crack_coding_interview.OneAway;
+import com.bamzy.crack_coding_interview.RotateMatrix;
+import com.bamzy.crack_coding_interview.URLify;
+import com.bamzy.google.*;
+import com.bamzy.netflix.MagicTriplet;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        BinaryTreePreorderTraversal.runTest();
 
-        ZigzagStringConversion.runTest();
 
-        AddBinary.runTest();
+        
+        PalindromeNumber.runTest();
 
-        TextJustification.runTest();
-
-        SQRTx.runTest();
-
-        ReArrangeSpaceBetweenWords.runTest();
-        MaskingPersonalInfo.runTest();
-        DP_fibbonaci.runTest();
-        DP_tribbonaci.runTest();
-        ReverseInteger.runTest();
-
-        AdjustLicensePlates.runTest();
-
-        BuildDirectoryTreeFromString.runTest();
+        UniqueList.runTest();
     }
-
 }
