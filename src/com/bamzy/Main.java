@@ -14,12 +14,7 @@ import com.bamzy.netflix.MagicTriplet;
 public class Main {
 
     public static void main(String[] args) {
-
-
-
         
-        PalindromeNumber.runTest();
-
-        UniqueList.runTest();
+        StackExampleValidate.runTest();
     }
 }
