@@ -17,7 +17,7 @@ public class Main {
 
     public static void main (String[] args) {
         // keep this function call here
-        IntegerToRoman.runTest();
+        MaximumLengthOfConcatenated.runTest();
     }
 
 }
