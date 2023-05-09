@@ -8,7 +8,7 @@ public class CompareTreeWSubtree {
 
             if(src[srcIndex]==null && dst[dstIndex]==null) return true;
             if(src[srcIndex]==dst[srcIndex]){
-                return compareNode(src,dst,srcIndex*2+1,dstIndex*2+1) && compareNode(src,dst,srcIndex*2+2,dstIndex*2+2)
+                return compareNode(src,dst,srcIndex*2+1,dstIndex*2+1) && compareNode(src,dst,srcIndex*2+2,dstIndex*2+2);
             } else return false;
         } else return false;
     }
