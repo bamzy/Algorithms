@@ -9,12 +9,15 @@ import com.bamzy.crack_coding_interview.RotateMatrix;
 import com.bamzy.crack_coding_interview.URLify;
 import com.bamzy.google.*;
 import com.bamzy.netflix.MagicTriplet;
-
+import java.util.*;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        
-        StackExampleValidate.runTest();
+
+    public static void main (String[] args) {
+        // keep this function call here
+        MaximumLengthOfConcatenated.runTest();
     }
+
 }
