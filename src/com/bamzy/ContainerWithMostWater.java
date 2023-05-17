@@ -24,4 +24,23 @@ package com.bamzy;
  *
  */
 public class ContainerWithMostWater {
+    public int maxArea(int[] height) {
+        int left = 0, right = height.length-1,currentArea=0, max = Integer.MIN_VALUE,ignoreLeftArea=0,ignoreRightArea=0;
+        while (left<right){
+            currentArea = Math.min(height[left],height[right])*(right-left);
+            max = Math.max(max, currentArea);
+            if (height[left]<height[right]){
+                left++;
+            } else right--;
+
+        }
+        return max;
+
+    }
+    public static void runTest(){
+        ContainerWithMostWater cwmw = new ContainerWithMostWater();
+        System.out.println(cwmw.maxArea(new int[]{1,3,2,5,24,25,5}));
+        System.out.println(cwmw.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
+        System.out.println(cwmw.maxArea(new int[]{1,1}));
+    }
 }
