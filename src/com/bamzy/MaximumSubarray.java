@@ -25,24 +25,14 @@ package com.bamzy;
  */
 public class MaximumSubarray {
     public int maxSubArray(int[] input){
-        int[][] tmp = new int[input.length][input.length];
-        for( int i= 0; i< tmp.length; i ++) {
-            for (int j = 0; j< tmp[0].length; j++){
-                if(j==i){
-                    tmp[i][j]=input[i];
-
-                } else if (j>i){
-                    tmp[i][j]=tmp[i][j-1]+input[j];
-                }
-            }
-        }
         int max = Integer.MIN_VALUE;
-        for( int i= 0; i< tmp.length; i ++) {
-            for (int j = 0; j< tmp[0].length; j++){
-                if(tmp[i][j]>max) max= tmp[i][j];
-            }
+        int prev = 0;
+        for( int i= 0; i< input.length; i ++) {
+            prev = Math.max(input[i],input[i]+prev);
+            if(prev>max) max= prev;
 
         }
+
         return max;
 
     }
