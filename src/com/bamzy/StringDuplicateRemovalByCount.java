@@ -1,7 +1,4 @@
 package com.bamzy;
-
-import java.util.ArrayDeque;
-import java.util.Queue;
 import java.util.Stack;
 
 public class StringDuplicateRemovalByCount {
@@ -12,11 +9,6 @@ public class StringDuplicateRemovalByCount {
         if(k>s.length()) return s;
         Stack<Character> q = new Stack<>();
 
-        //s : assb
-        //q: a            s    ss
-        // current :      s     s
-        // begIndex :     1     1
-        // endIndex:      0     2
         while (search && s.length()>0){
             search=false;
             q.clear();
